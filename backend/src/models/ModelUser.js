@@ -1,9 +1,10 @@
 const mongoose = require('../config/database');
+
 const Schema = mongoose.Schema;
 
 const UserSchema =  new Schema({
     name:{type: String, require: true},
-    email:{type:String, required: true},
+    email:{type:String, unique:true, lowercase:true ,required: true},
     password:{type:String, required: true},
     admin:{type:Boolean, default:false },
     createdAt: {
