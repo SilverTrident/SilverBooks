@@ -2,7 +2,8 @@ const MiddlewareBook = async(req,res,next)=>{
     const {
         name,
         categories,
-        description
+        description,
+        link
 
     }= req.body;
 
@@ -15,6 +16,8 @@ const MiddlewareBook = async(req,res,next)=>{
     }else if(!description){
         return res.status(400).json({ err: 'descrição é obrigatorio' });
 
+    }else if(!link){
+        return res.status(400).json({ err: 'link é obrigatorio' });
     }else{
         next();
     }

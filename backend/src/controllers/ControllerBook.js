@@ -16,6 +16,16 @@ class ControllerBook {
                 return res.status(500).json(err);
             })
     }
+    async listAll(req,res){
+        await ModelBook.find().
+        sort('createdAt').
+        then( response =>{
+            return res.status(200).json(response);
+        }).
+        catch(err => {
+            return res.status(500).json(err);
+        }) 
+    }
 }
 
 module.exports = new ControllerBook();
