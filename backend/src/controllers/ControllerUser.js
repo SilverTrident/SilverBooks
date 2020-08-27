@@ -1,6 +1,7 @@
 const ModelUser = require('../models/ModelUser');
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth.json')
 
 class ControllerUser {
     async created(req, res) {
@@ -35,7 +36,14 @@ class ControllerUser {
             }else{
                 bcrypt.compare(req.body.password, response.password,(err, equal)=>{
                     if(equal){
-                        return res.status(200).json(response);
+                        response.password =undefined;
+                        const token = jwt.sign(
+                            {id : response.id},
+                            authConfig.secret,
+                            {expiresIn : 86400}
+                             )
+
+                        return res.status(200).json({response,token});
                     }else{
                         return res.status(400).json({ err: 'senha incorreta' })
                     }
