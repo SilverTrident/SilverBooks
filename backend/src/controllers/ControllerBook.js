@@ -26,6 +26,18 @@ class ControllerBook {
             return res.status(500).json(err);
         }) 
     }
+    async listCategory(req,res){
+        await ModelBook.find({
+            'categories':{'$in':req.params.category}
+        }). sort('createdAt').
+        then(response => {
+            return res.status(200).json(response);
+        }
+        ).catch(err => {
+            return res.status(500).json(err);
+        });
+    }
+
 }
 
 module.exports = new ControllerBook();
