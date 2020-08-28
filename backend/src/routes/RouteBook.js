@@ -5,8 +5,8 @@ const express = require('express');
 
 const route = express.Router();
 
-route.post('/admin',MiddlewareAuthenticated,MiddlewareBook,ControllerBook.created);
-route.get('/admin',MiddlewareAuthenticated,ControllerBook.listAll);
+route.post('/admin',MiddlewareAuthenticated.admin,MiddlewareBook,ControllerBook.created);
+route.get('/admin',MiddlewareAuthenticated.admin,ControllerBook.listAll);
 route.get('/',ControllerBook.listAll);
 route.get('/:category',ControllerBook.listCategory);
 
