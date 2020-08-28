@@ -55,6 +55,10 @@ class ControllerUser {
 
         })
     }
+    async logout(req,res){
+        req.session.user = undefined;
+        res.status(200).json({msg : 'disconnected success'})
+    }
 }
 
 module.exports = new ControllerUser();
