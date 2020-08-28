@@ -9,7 +9,7 @@ const server = express();
 server.use(express.json());
 server.use(session({
     secret : '2fe619988a70829f1b6cb455cd493905',
-    cookie : {maxAge : 60000}
+    cookie : {maxAge : 60000000}
 }))
 
 

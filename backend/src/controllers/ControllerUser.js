@@ -45,6 +45,7 @@ class ControllerUser {
                         response.password =undefined;
                         response.admin =undefined;
                         return res.status(200).json(req.session.user);
+                        
                     }else{
                         return res.status(400).json({ err: 'senha incorreta' })
                     }
