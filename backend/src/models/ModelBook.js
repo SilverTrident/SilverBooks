@@ -6,7 +6,8 @@ const BookSchema = new Schema({
     name: { type: String, required: true },
     categories: { type: Number, required: true },
     description: { type: String, required: true },
-    link: { type: String, required: true },
+    bookLink: { type: String, required: true },
+    imgLink : {type: String, required: true},
     createdAt: {
         type: Date,
         default: Date.now()

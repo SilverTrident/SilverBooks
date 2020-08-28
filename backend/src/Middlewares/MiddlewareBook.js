@@ -3,7 +3,8 @@ const MiddlewareBook = async(req,res,next)=>{
         name,
         categories,
         description,
-        link
+        bookLink,
+        imgLink
 
     }= req.body;
 
@@ -16,9 +17,12 @@ const MiddlewareBook = async(req,res,next)=>{
     }else if(!description){
         return res.status(400).json({ err: 'descrição é obrigatorio' });
 
-    }else if(!link){
+    }else if(!bookLink){
         return res.status(400).json({ err: 'link é obrigatorio' });
-    }else{
+    }else if(!imgLink){
+        return res.status(400).json({ err: 'link é obrigatorio' });
+    }
+    else{
         next();
     }
 }
