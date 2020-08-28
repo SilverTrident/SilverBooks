@@ -12,6 +12,8 @@ route.put('/admin/:id',MiddlewareAuthenticated.admin,ControllerBook.update)
 route.get('/admin/edit/:id',MiddlewareAuthenticated.admin,ControllerBook.listOne)
 route.get('/admin/listall',MiddlewareAuthenticated.admin,ControllerBook.listAll);
 
+
+route.get('/selectedbook/:id', ControllerBook.listOne)
 route.get('/',ControllerBook.listAll);
 route.get('/:category',ControllerBook.listCategory);
 
