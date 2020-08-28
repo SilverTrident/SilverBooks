@@ -1,16 +1,7 @@
 const ModelUser = require('../models/ModelUser');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const authConfig = require('../config/auth.json')
 
-function generateToken(params ={id : response.id}){
-   return jwt.sign(
-        {params},
-        authConfig.secret,
-        {expiresIn : 86400}
-         )
 
-}
 
 
 class ControllerUser {
@@ -27,7 +18,7 @@ class ControllerUser {
                         .then(response => {
                             user.password =undefined;
                             user.admin =undefined;
-                            return res.status(200).json({response,token : generateToken({id : response.id})});
+                            return res.status(200).json(response);
                         })
                         .catch(err => {
                             user.password =undefined;
@@ -47,9 +38,13 @@ class ControllerUser {
             }else{
                 bcrypt.compare(req.body.password, response.password,(err, equal)=>{
                     if(equal){
+                         req.session.user  = {
+                             id : response.id,
+                             email : response.email
+                         } 
                         response.password =undefined;
                         response.admin =undefined;
-                        return res.status(200).json({response, token : generateToken({id : response.id})});
+                        return res.status(200).json(req.session.user);
                     }else{
                         return res.status(400).json({ err: 'senha incorreta' })
                     }
