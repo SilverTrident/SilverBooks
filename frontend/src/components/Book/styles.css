@@ -1,0 +1,55 @@
+.book-item{
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:var(--color-primary);  
+  border-radius: 1.5rem;
+  border:1px solid var(--color-primary);
+  box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+
+  margin: 2rem;
+  padding: 2rem;
+  font: 400 1.3rem Georgia;
+}
+
+.book-item header #book-title{
+  color: var(--color-special);
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 5rem;
+  
+}
+.book-item #book-content{
+  margin-top: 1.4rem;
+  display: flex;
+ flex-direction: row; 
+}
+
+.book-item #book-content #book-img{
+    width: 10rem;
+    height: 15rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 5px 0px var(--color-background);
+}
+.book-item #book-content p{
+  font: 400 1.3rem Poppins;
+  text-align: center;
+  align-self: center;
+  
+}
+.book-item #book-content #btn-download{
+  cursor: pointer;
+  opacity: 0.5;
+  align-items: baseline;
+  margin-left: 2.5rem;
+  width: 15rem;
+  height: 2.5rem;
+  align-self: flex-end;
+}
+.book-item #book-content #btn-download:hover{
+  opacity: 1;
+}

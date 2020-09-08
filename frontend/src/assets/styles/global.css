@@ -3,6 +3,7 @@
     --color-background: #252830;
     --color-primary: #30343E;
     --color-letters: #FFFFFF;
+    --color-special: #1997C6;
 }
 
 *{
@@ -33,7 +34,7 @@ body,input,button,textarea{
 
 .contanner{
     width: 90vw;
-    max-width: 700px;
+   
 }
 
 @media(min-width: 800px){
