@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import './styles.css'
@@ -11,8 +13,8 @@ function Login(){
                 <form>
                 <h1>Login</h1>
                     <div id='login-field'>
-                        <input type='email' id='field-email' placeholder='exemple@email.com'/>
-                        <input type='password' id='field-password' placeholder='**************'/>
+                        <Input type='email'  placeholder='exemple@email.com'/>
+                        <Input type='password'  placeholder='**************'/>
                     </div>
                     <div id='login-buttons'>
                         <input type='button' id='btn-back' value='Voltar'/>

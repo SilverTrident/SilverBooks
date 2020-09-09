@@ -41,15 +41,19 @@
   align-self: center;
   
 }
-.book-item #book-content #btn-download{
+.book-item #book-content #btns {
   cursor: pointer;
-  opacity: 0.5;
+  flex-direction:  column;
   align-items: baseline;
   margin-left: 2.5rem;
-  width: 15rem;
-  height: 2.5rem;
   align-self: flex-end;
 }
-.book-item #book-content #btn-download:hover{
+.book-item #book-content #btns  img{
+  margin-top: 1.5rem;
+  opacity: 0.5;
+  width: 11rem;
+  height: 2.5rem;
+}
+.book-item #book-content #btns img:hover{
   opacity: 1;
 }

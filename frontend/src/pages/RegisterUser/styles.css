@@ -1,14 +1,14 @@
-#login-page{
+#register-page{
     
     width: 100vw;
     height: 100vh;
     
   }
 
-  #login-page #login-containner{
+  #register-page #register-containner{
    
     display: flex;
-    margin: 18rem auto;
+    margin: 10rem auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -16,14 +16,15 @@
     
     
   }
+
   form {
-    max-width: 900px;
-    height: 48rem;
+    max-width: 1000px;
+    height: 65rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     background: var(--color-primary);
     border-radius: 0.8rem;
     box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
@@ -35,19 +36,17 @@
     margin-bottom: 3rem;
   }
 
-
- #login-buttons{
+ #register-buttons{
    margin: 2rem;
    margin-top: 5rem;
    display: flex;
    align-items: center;
    justify-content: center;
+   border-radius: 2rem;
+   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   }
-  #login-buttons{
-    border-radius: 2rem;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-  }
-  #login-buttons input {
+
+  #register-buttons input {
     font-family:Georgia, Poppins ;
     font-size: 2.5rem;
   }
@@ -61,7 +60,7 @@
     opacity: 0.75;
 
   }
-  #btn-logar{
+  #btn-register{
     height: 7rem;
     width: 17rem;
     border: none;
@@ -74,19 +73,21 @@
     opacity: 1;
     cursor: pointer;
   }
-  #btn-logar:hover{
+  #btn-register:hover{
     opacity: 1;
     cursor: pointer;
   }
 
-
-  @media(min-width: 800px ) and (min-height: 800px){
+  @media(min-width: 800px ) {
     form{
-      width: 100%;
+      width: 70%;
     }
+   
+  }
+  @media(min-width: 100px ) and (min-height: 850px){
     #login-footer{
       position:absolute;
       bottom:0;
       width: 100%;
     }
-}
+  }

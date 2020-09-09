@@ -1,5 +1,8 @@
 import React from 'react'
 import BtnDownload from '../../assets/images/icons/BtnDownload.png'
+import BtnEdit from '../../assets/images/icons/BtnEdit.png'
+import BtnDelete from '../../assets/images/icons/BtnDelete.png'
+
 
 import './styles.css'
 function Book() {
@@ -17,7 +20,11 @@ function Book() {
                     MAS O PODER TEM O SEU PREÇO.
                     
                 </p>
-                <img id='btn-download'src={BtnDownload} />
+                <div id='btns'>
+                 <img src={BtnEdit} />
+                 <img src={BtnDelete} />
+                </div>
+                
             </div>
 
         </article>
