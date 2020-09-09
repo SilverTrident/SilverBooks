@@ -18,8 +18,7 @@
   }
 
   form {
-    max-width: 1000px;
-    height: 65rem;
+    max-width: 65rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,12 +30,50 @@
     
   }
   form  h1{
+    opacity: 0.90;
     font-weight: 400;
-    font-family:  Georgia;
+    font-family:  Georgia, Roboto;
     margin-bottom: 3rem;
   }
 
+  #registerBook-area{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    align-items: center;
+    justify-content: center;
+    width: 50rem;
+    
+  }
 
+  #registerBook-area label{
+    
+    align-self: flex-start;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-family:   Roboto;
+    font-weight: 400;
+    font-size: 2rem;
+    color :var(--color-opacity);
+
+  }
+
+  #registerBook-area textarea{
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border:none;
+    background: var(--color-background);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.75);
+    resize: none; 
+  }
+  #registerBook-area :nth-child(2){
+    height: 10rem;
+  }
+  #registerBook-area :nth-child(4){
+    height: 25rem;
+  }
  #registerBook-buttons{
    margin: 2rem;
    margin-top: 5rem;
@@ -52,23 +89,15 @@
     font-size: 2.5rem;
   }
 
-  #btn-back{
-    height: 7rem;
-    width: 17rem;
-    border: none;
-    background: var(--color-background);
-    border-radius: 2rem 0rem 0rem 2rem;
-    opacity: 0.75;
-
-  }
+  
   #btn-registerBook{
-    height: 7rem;
-    width: 17rem;
+    height: 4rem;
+    width: 30rem;
     border: none;
     background: var(--color-background);
-    border-radius: 0rem 2rem 2rem 0rem;
+    border-radius: 2rem;
     border-left: 0.5px solid var(--color-primary);
-    opacity: 0.75;
+    opacity: 0.5;
   }
   #btn-back:hover{
     opacity: 1;
@@ -81,14 +110,9 @@
 
   @media(min-width: 800px ) {
     form{
-      width: 70%;
+      width: 50%;
     }
    
   }
-  @media(min-width: 100px ) and (min-height: 850px){
-    #login-footer{
-      position:absolute;
-      bottom:0;
-      width: 100%;
-    }
-  }
+  
+  

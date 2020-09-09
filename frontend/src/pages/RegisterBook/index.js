@@ -14,11 +14,18 @@ function RegisterBook() {
             <div id='registerBook-containner'>
 
                 <form>
-                    <h1>Cadastrar Usuário</h1>
+                    <h1>Cadastrar Livro</h1>
                     <div id='registerBook-field'>
-                        <Input type='text'  placeholder='Digite  nome do livro' />
-                        <Input type='email' placeholder='exemple@email.com' />
-                        
+                        <Input type='text'  placeholder='Nome do livro' />
+                        <Input type='text'  placeholder='Link do livro' />
+                        <Input type='text'  placeholder='Link da Imagem' />
+                    </div>
+                    <div id='registerBook-area'>
+                        <label>Descrição Básica do livro:</label>
+                        <textarea cols='15'></textarea>
+
+                        <label>Descrição completa do livro:</label>
+                        <textarea cols='30'></textarea>
                     </div>
                     <div id='registerBook-buttons'>
                         <input type='submit' id='btn-registerBook' value='Cadastrar Livro' />
