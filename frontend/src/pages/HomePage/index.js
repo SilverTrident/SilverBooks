@@ -4,6 +4,9 @@ import Footer from '../../components/Footer'
 import Book from '../../components/Book'
 import './styles.css'
 
+import BtnEdit from '../../assets/images/icons/BtnEdit.png'
+import BtnDelete from '../../assets/images/icons/BtnDelete.png'
+import BtnDownload from '../../assets/images/icons/BtnDownload.png'
 
 function HomePage() {
     return (
@@ -11,12 +14,32 @@ function HomePage() {
             <Header />
             <div id="home-page-content" className="container">
                 <main>
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
+                    <Book >
+                        <img src={BtnEdit} />
+                        <img src={BtnDelete} />
+                    </Book>
+                    <Book >
+                        <img src={BtnDownload} />
+                    </Book>
+                    <Book >
+                        <img src={BtnDownload} />
+                    </Book>
+                    <Book >
+                        <img src={BtnEdit} />
+                        <img src={BtnDelete} />
+                    </Book>
+                    <Book >
+                        <img src={BtnEdit} />
+                        <img src={BtnDelete} />
+                    </Book>
+                    <Book >
+                        <img src={BtnEdit} />
+                        <img src={BtnDelete} />
+                    </Book>
+                    <Book >
+                        
+                    </Book>
+                    
                     
                 </main>
             </div>

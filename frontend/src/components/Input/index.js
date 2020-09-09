@@ -3,10 +3,10 @@ import './style.css'
 
 
 
-function Input({ type, placeholder }) {
+function Input(props) {
     return (
         <div id='input'>
-            <input type={type} placeholder={placeholder} />
+            <input type={props.type} placeholder={props.placeholder} />
         </div>
     )
 }

@@ -53,6 +53,7 @@
   opacity: 0.5;
   width: 11rem;
   height: 2.5rem;
+  
 }
 .book-item #book-content #btns img:hover{
   opacity: 1;

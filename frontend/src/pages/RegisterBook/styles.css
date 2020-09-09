@@ -66,7 +66,7 @@
     background: var(--color-background);
     border-radius: 1rem;
     box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.75);
-    resize: none; 
+     resize: none; 
   }
   #registerBook-area :nth-child(2){
     height: 10rem;
@@ -82,6 +82,7 @@
    justify-content: center;
    border-radius: 2rem;
    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+   
   }
 
   #registerBook-buttons input {
@@ -99,16 +100,20 @@
     border-left: 0.5px solid var(--color-primary);
     opacity: 0.5;
   }
-  #btn-back:hover{
-    opacity: 1;
-    cursor: pointer;
-  }
+
   #btn-registerBook:hover{
     opacity: 1;
     cursor: pointer;
+    
+    color: var(--color-special);
+    
+  }
+  #registerBook-buttons:active{
+    transition-delay: 0.1s;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
   }
 
-  @media(min-width: 800px ) {
+  @media(min-width: 900px ) {
     form{
       width: 50%;
     }

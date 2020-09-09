@@ -1,11 +1,11 @@
 import React from 'react'
 import BtnDownload from '../../assets/images/icons/BtnDownload.png'
-import BtnEdit from '../../assets/images/icons/BtnEdit.png'
-import BtnDelete from '../../assets/images/icons/BtnDelete.png'
+
+
 
 
 import './styles.css'
-function Book() {
+function Book(props) {
     return (
         <article className="book-item">
             <header >
@@ -21,8 +21,8 @@ function Book() {
                     
                 </p>
                 <div id='btns'>
-                 <img src={BtnEdit} />
-                 <img src={BtnDelete} />
+                    
+                     {props.children}
                 </div>
                 
             </div>

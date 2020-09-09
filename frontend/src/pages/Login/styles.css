@@ -45,7 +45,7 @@
   }
   #login-buttons{
     border-radius: 2rem;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   }
   #login-buttons input {
     font-family:Georgia, Poppins ;
@@ -59,6 +59,7 @@
     background: var(--color-background);
     border-radius: 2rem 0rem 0rem 2rem;
     opacity: 0.75;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 
   }
   #btn-logar{
@@ -69,15 +70,18 @@
     border-radius: 0rem 2rem 2rem 0rem;
     border-left: 0.5px solid var(--color-primary);
     opacity: 0.75;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   }
-  #btn-back:hover{
+  #btn-back:hover,#btn-logar:hover{
     opacity: 1;
     cursor: pointer;
+    color: var(--color-special);
   }
-  #btn-logar:hover{
-    opacity: 1;
-    cursor: pointer;
+  #btn-back:active, #btn-logar:active{
+    transition-delay: 0.1s;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
   }
+
 
 
   @media(min-width: 800px ) and (min-height: 800px){
