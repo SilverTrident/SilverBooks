@@ -6,7 +6,7 @@ import './styles.css'
 
 import BtnEdit from '../../assets/images/icons/BtnEdit.png'
 import BtnDelete from '../../assets/images/icons/BtnDelete.png'
-import BtnDownload from '../../assets/images/icons/BtnDownload.png'
+
 
 function HomePage() {
     return (
@@ -15,29 +15,24 @@ function HomePage() {
             <div id="home-page-content" className="container">
                 <main>
                     <Book >
-                        <img src={BtnEdit} />
-                        <img src={BtnDelete} />
+                        <img src={BtnEdit} alt='button edit'/>
+                        <img src={BtnDelete} alt='button delete'/>
                     </Book>
                     <Book >
-                        <img src={BtnDownload} />
+                        <img src={BtnEdit} alt='button edit'/>
+                        <img src={BtnDelete} alt='button delete'/>
                     </Book>
                     <Book >
-                        <img src={BtnDownload} />
+                        <img src={BtnEdit} alt='button edit'/>
+                        <img src={BtnDelete} alt='button delete'/>
                     </Book>
                     <Book >
-                        <img src={BtnEdit} />
-                        <img src={BtnDelete} />
+                        <img src={BtnEdit} alt='button edit'/>
+                        <img src={BtnDelete} alt='button delete'/>
                     </Book>
                     <Book >
-                        <img src={BtnEdit} />
-                        <img src={BtnDelete} />
-                    </Book>
-                    <Book >
-                        <img src={BtnEdit} />
-                        <img src={BtnDelete} />
-                    </Book>
-                    <Book >
-                        
+                        <img src={BtnEdit} alt='button edit'/>
+                        <img src={BtnDelete} alt='button delete'/>
                     </Book>
                     
                     

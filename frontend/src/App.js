@@ -3,12 +3,13 @@ import './assets/styles/global.css'
 
 
 /*
-import HomePage from './pages/HomePage'
+import HomePageAdm from './pages/HomePageAdm'
+import HomePageUser from './pages/HomePageUser'
 import Login from './pages/Login'
 import Register from './pages/RegisterUser'
 import RegisterBook from './pages/RegisterBook'
 */
-import Register from './pages/HomePage'
+import Register from './pages/HomePageUser'
 function App() {
     return ( 
     <Register/>

@@ -1,0 +1,68 @@
+#home-page-user{
+    width: 100vw;
+    height: 100vh;
+}
+
+#home-page-content{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem ;
+    margin-right: 2rem ;
+
+}
+
+#aside-left{
+    margin-bottom: 3rem;
+    background:var(--color-primary);
+    width: auto;
+    height: 20vh;
+}
+
+main{
+    margin-bottom: 3rem;
+    
+    border-radius: 1rem;
+    
+}
+
+#aside-right{
+    margin-bottom: 4rem;
+    background:var(--color-primary);
+    height: 20vh;
+}
+
+@media(min-width: 800px ) {
+    #home-page-content{
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr ;
+    }
+    
+    #aside-left{
+        margin-right:1rem;
+        background:var(--color-primary);
+        
+        height: 95%;
+    }
+    
+    main{
+        margin-bottom: 3rem;
+        
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    #aside-right{
+        margin-left: 1rem;
+        background:var(--color-primary);
+
+        height: 95%;
+        
+
+    }
+  
+    
+    }

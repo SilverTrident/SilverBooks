@@ -1,5 +1,5 @@
 import React from 'react'
-import BtnDownload from '../../assets/images/icons/BtnDownload.png'
+
 
 
 
