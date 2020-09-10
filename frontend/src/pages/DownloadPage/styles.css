@@ -12,13 +12,20 @@
 
 }
 #filters{
+    background: var( --color-opacity);
+    
+    margin: 0 2rem;
+    border-radius: 1rem;
+
     margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem 6rem;
+    padding: 2rem 6rem;
     align-items: center;
     justify-content: center;
-}
+    margin-bottom: 10rem;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+  }
 
 #left-aside{
     width: 100%;

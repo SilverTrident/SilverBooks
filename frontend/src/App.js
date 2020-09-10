@@ -11,7 +11,7 @@ import RegisterBook from './pages/RegisterBook'
 import EditBook from './pages/EditBook'
 import DownloadPage from './pages/DownloadPage'
 */
-import Register from './pages/DownloadPage'
+import Register from './pages/HomePageAdm'
 function App() {
     return ( 
     <Register/>

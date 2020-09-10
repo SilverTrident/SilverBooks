@@ -2,7 +2,21 @@
     width: 100vw;
     height: 100vh;
 }
+#filters{
+    background: var( --color-opacity);
+    
+    margin: 0 2rem;
+    border-radius: 1rem;
 
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 6rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+  }
 #home-page-content{
     margin-top: 10rem;
     display: flex;
@@ -17,6 +31,7 @@
     background:var(--color-primary);
     width: auto;
     height: 20vh;
+    box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
 main{
@@ -30,6 +45,7 @@ main{
     margin-bottom: 4rem;
     background:var(--color-primary);
     height: 20vh;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
 @media(min-width: 800px ) {
