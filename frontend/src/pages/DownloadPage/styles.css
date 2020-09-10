@@ -1,0 +1,193 @@
+#pageDowload{
+    width: 100vw;
+    height: 100vh;
+}
+#containner-pageDowload{
+    
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem ;
+    margin-right: 2rem;   
+
+}
+
+#left-aside{
+    width: 100%;
+    height: 10rem;
+    background-color: var(--color-primary);
+    margin-bottom: 2rem;
+
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
+#right-aside{
+    width: 100%;
+    height: 10rem;
+    background-color: var(--color-primary);
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+}
+
+#top-page{
+    max-width: 800px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-page header #img-container{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin : 5rem;
+}
+
+#top-page header #img-container img{
+    width: 15rem;
+    height: 23rem;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+
+}
+#top-page header #title-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+#top-page header #title-container h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 1rem;
+    margin: 2rem;
+}
+#top-page header #title-container #advertising{
+    width: 30rem;
+    height: 15rem;
+    margin-bottom: 2rem;
+    background: var(--color-primary);
+    border-radius: 0.8rem;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+#top-page footer{
+    
+    
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    
+   }
+ 
+#top-page footer{
+     font-family:Georgia, Poppins ;
+     font-size: 2.5rem;
+}
+#top-page footer #btn-download{
+    height: 5rem;
+    width: 30rem;
+    border: none;
+    background: var(--color-special);
+    border-radius: 2rem;
+    border-left: 0.5px solid var(--color-primary);
+    opacity: 0.5;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+
+
+#top-page footer #btn-download:hover{
+    opacity: 1;
+    cursor: pointer;
+    
+   
+    
+}
+#top-page footer #btn-download:active{
+    transition-delay: 0.1s;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+#main-page{
+    max-width: 800px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:1rem;
+}
+
+#main-page main label{
+    font-family: Georgia, Roboto, Poppins;
+    font-size: 2rem;
+    font-weight: 500;
+}
+#main-page main p{
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: Georgia, Roboto, Poppins;
+    opacity: 0.80;
+    
+}
+
+@media(min-width : 900px){
+    #containner-pageDowload{
+        display:grid;
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    #left-aside{
+        width: 100%;
+        height: 98%;
+        margin: none;
+        padding: 1rem;
+        box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
+        
+    }
+    #right-aside{
+        width: 100%;
+        height: 98%;
+        padding: 1rem;
+        margin-top: 0px;
+        margin-bottom:0px;   
+    }
+    header{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+    #top-page header #img-container img{
+        width: 17rem;
+        height: 25rem;
+    }
+    #title-container{
+        
+    } 
+    #title-container h1{
+        opacity: 0.75;
+    }
+    #top-page{
+        margin-bottom:25rem;
+    }
+    #main-page main label{
+        padding: 3rem;
+        
+    }
+    #main-page main p{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        
+    }
+   
+    
+}

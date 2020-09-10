@@ -9,8 +9,9 @@ import Login from './pages/Login'
 import Register from './pages/RegisterUser'
 import RegisterBook from './pages/RegisterBook'
 import EditBook from './pages/EditBook'
+import DownloadPage from './pages/DownloadPage'
 */
-import Register from './pages/EditBook'
+import Register from './pages/DownloadPage'
 function App() {
     return ( 
     <Register/>
