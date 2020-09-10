@@ -2,3 +2,114 @@
     width: 100vw;
     height: 100vh;
 }
+#card-form{
+    margin: 18rem auto;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;  
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75); 
+}
+#card-form h1{
+    font-size: 2rem;
+    font-family: Georgia, Roboto;
+    font-style: oblique;
+    font-weight: 550;
+
+
+    padding: 3rem;
+    opacity: 0.75;
+}
+#top-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-side #contanner-img{
+    max-width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background:var(--color-background);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+
+}
+#top-side #contanner-img img{
+    border: 1px solid var(--color-primary);
+    width: 10rem;
+    height: 18rem;
+}
+
+
+#editBook-buttons{
+    margin: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+   }
+ 
+   #editBook-buttons input {
+     font-family:Georgia, Poppins ;
+     font-size: 2.5rem;
+   }
+ 
+   
+   #btn-editBook{
+     height: 4rem;
+     width: 30rem;
+     border: none;
+     background: var(--color-background);
+     border-radius: 2rem;
+     border-left: 0.5px solid var(--color-primary);
+     opacity: 0.5;
+   }
+ 
+   #btn-editBook:hover{
+     opacity: 1;
+     cursor: pointer;
+     
+     color: var(--color-special);
+     
+   }
+   #editBook-buttons:active{
+     transition-delay: 0.1s;
+     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+   }
+
+   @media(min-width : 800px){
+        #card-form{ 
+            max-width: 1000px;
+            padding: 5rem;
+        }
+        #top-side{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #top-side #contanner-img{
+            width: 17rem;
+            height: 25rem;
+        }
+        #top-side #contanner-img img{
+            width: 12rem;
+            height: 20rem;
+        }
+        #bot-side label{
+            margin-left:-14rem ;
+            
+        }
+        #bot-side textarea{
+            width: 80rem;
+        }
+
+   }

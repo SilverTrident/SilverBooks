@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
 import TextArea from '../../components/TextArea'
@@ -10,8 +11,8 @@ function EditBook() {
     return (
         <div id='page-editbook'>
             <Header />
-            <form id='card-form'>
-                <main>
+            <main>
+                <form id='card-form'>
                     <h1>Editar Livro</h1>
                     <div id='top-side'>
                         <div id='contanner-img'>
@@ -34,8 +35,12 @@ function EditBook() {
                         <TextArea label='Descrição Básica do livro:' rows='5' />
                         <TextArea label='Descrição completa do livro:' rows='10' />
                     </div>
-                </main>
-            </form>
+                    <div id='editBook-buttons'>
+                        <input type='button' id='btn-editBook' value='Editar Livro' />
+                    </div>
+                </form>
+            </main>
+            <Footer/>
         </div>
     );
 }
