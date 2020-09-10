@@ -8,8 +8,9 @@ import HomePageUser from './pages/HomePageUser'
 import Login from './pages/Login'
 import Register from './pages/RegisterUser'
 import RegisterBook from './pages/RegisterBook'
+import EditBook from './pages/EditBook'
 */
-import Register from './pages/HomePageUser'
+import Register from './pages/EditBook'
 function App() {
     return ( 
     <Register/>

@@ -36,7 +36,10 @@ function HomePageUser() {
 
                 </aside>
             </div>
+            
             <Footer />
+            
+            
         </div>
     );
 }
