@@ -2,19 +2,33 @@ import React from 'react'
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
+import Filter from '../../components/Filter'
+
 
 import './styles.css'
 
-import BtnDownload from '../../assets/images/icons/BtnDownload.png'
 function DownloadPage() {
     return (
         <div id='pageDowload'>
             <Header />
+            <div id='filters'>
+                <Filter name='ficção cientifica'/>
+                <Filter name='Romance'/>
+                <Filter name='Terror'/>
+                <Filter name='Aventura'/>
+                <Filter name='Distopia'/>
+                <Filter name='Games'/>
+                <Filter name='Programação'/>
+                <Filter name='Jovem adulto'/>
+                <Filter name='Crônicas'/>
+            </div>
+
             <div id='containner-pageDowload'>
                 <aside id='left-aside'>
 
                 </aside>
                 <section id='top-page'>
+
                     <header>
                         <div id='img-container'>
                             <img id='book-img' alt='book-folder' src="http://imagens.lelivros.love/2020/06/baixar-livro-a-cantiga-dos-passaros-e-das-serpentes-jogos-vorazes-vol-04-suzanne-collins-em-pdf-epub-mobi-ou-ler-online-370x546.jpg" />
