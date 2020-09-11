@@ -48,10 +48,15 @@ main{
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
-@media(min-width: 800px ) {
+@media(min-width: 900px ) {
+header{
+    display: flex;
+    flex-direction: column;
+}
+
     #home-page-content{
         display: grid;
-        grid-template-columns: 1fr 4fr 1fr ;
+        grid-template-columns: 1fr 2fr 1fr ;
     }
     
     #aside-left{
@@ -61,12 +66,12 @@ main{
         height: 95%;
     }
     
-    main{
+    #content-main{
         margin-bottom: 3rem;
         
         border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column!important;
         align-items: center;
         
     }

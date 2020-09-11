@@ -15,7 +15,7 @@
   font: 400 1.3rem Georgia;
 }
 
-.book-item header #book-title{
+.book-item #container-title #book-title{
   color: var(--color-special);
   font-size: 1.5rem;
   font-weight: 500;
@@ -25,13 +25,15 @@
 .book-item #book-content{
   margin-top: 1.4rem;
   display: flex;
- flex-direction: row; 
+ flex-direction: column; 
+ align-items: center;
 }
 
 .book-item #book-content #book-img{
     width: 10rem;
     height: 15rem;
     margin-right: 2rem;
+    margin-bottom:2rem ;
     border-radius: 0.5rem;
     box-shadow: 4px 4px 5px 0px var(--color-background);
 }
@@ -46,7 +48,7 @@
   flex-direction:  column;
   align-items: baseline;
   margin-left: 2.5rem;
-  align-self: flex-end;
+  
 }
 .book-item #book-content #btns  img{
   margin-top: 1.5rem;
@@ -55,9 +57,27 @@
   height: 2.5rem;
   
 }
+
+
 .book-item #book-content #btns img:hover{
-  width: 15rem;
-  height: 3rem;
+
   transition: 2ms;
   opacity: 1;
+}
+
+@media(min-width: 800px ) {
+  
+  
+  .book-item #book-content{
+   
+   flex-direction: row; 
+   
+  }
+  
+  .book-item #book-content #btns {
+
+    align-self: flex-end;
+  }
+
+
 }
