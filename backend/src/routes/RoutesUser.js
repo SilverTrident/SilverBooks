@@ -7,7 +7,7 @@ const route = express.Router();
 
 route.post('/',MiddlewareUser,ControllerUser.created);
 route.post('/login',ControllerUser.login);
-route.get('/logout',MiddlewareAuthenticated.admin,ControllerUser.logout);
+
 
 
 

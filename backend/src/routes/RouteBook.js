@@ -6,11 +6,11 @@ const { Router } = require('express');
 
 const route = express.Router();
 
-route.post('/admin',MiddlewareAuthenticated.admin,MiddlewareBook,ControllerBook.created);
-route.delete('/admin/:id',MiddlewareAuthenticated.admin, ControllerBook.delete)
-route.put('/admin/:id',MiddlewareAuthenticated.admin,ControllerBook.update)
-route.get('/admin/edit/:id',MiddlewareAuthenticated.admin,ControllerBook.listOne)
-route.get('/admin/listall',MiddlewareAuthenticated.admin,ControllerBook.listAll);
+route.post('/admin',MiddlewareAuthenticated.auth,MiddlewareBook,ControllerBook.created);
+route.delete('/admin/:id',MiddlewareAuthenticated.auth, ControllerBook.delete)
+route.put('/admin/:id',MiddlewareAuthenticated.auth,ControllerBook.update)
+route.get('/admin/edit/:id',MiddlewareAuthenticated.auth,ControllerBook.listOne)
+route.get('/admin/listall',MiddlewareAuthenticated.auth,ControllerBook.listAll);
 
 
 route.get('/selectedbook/:id', ControllerBook.listOne)

@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const UserSchema =  new Schema({
     name:{type: String, require: true},
     email:{type:String, unique:true, lowercase:true ,required: true},
-    password:{type:String, required: true},
-    admin:{type:Boolean, default:false },
+    password:{type:String, required: true, select:false},
+    admin:{type:Boolean, default:false,select:true },
     createdAt: {
         type: Date,
         default: Date.now()

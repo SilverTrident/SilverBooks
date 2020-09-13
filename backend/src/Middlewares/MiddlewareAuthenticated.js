@@ -1,30 +1,36 @@
 const ModelUser = require('../models/ModelUser');
+const JWT = require('jsonwebtoken');
+const authSecret = require('../config/authSecret.json');
+const { response } = require('express');
+class MiddlewareAuthenticated {
 
-class MiddlewareAuthenticated{
-    async admin(req, res, next){
-        if (req.session.user) {
-            const {admin} = await ModelUser.findById(req.session.user.id);
-            if(admin){
-                next();
-            }else{
-                res.status(401).json({ err: 'user needs to admin' })
-            }
-       
+    async auth(req, res, next) {
+        const token = req.headers.authorization;
+        if (!token) {
+            return res.status(401).send({ err: 'no token provided' })
         } else {
-            res.status(401).json({ err: 'user needs to be logged in' })
-        }
-    
-    }
-    async user(req,res,next){
-        if (req.session.user) {
-                next();
-            
-       
-        } else {
-            res.status(401).json({ err: 'user needs to be logged in' })
-        }
+            await JWT.verify(token, authSecret.secret, (err, decoded) => {
+                if (err) {
+                    return res.status(401).json({ er: 'token invalid' })
+                } else {
 
+
+                    ModelUser.findById(decoded.id).then(response => {
+                        if(response.admin){
+                            req.userId = decoded.id;
+                            next();
+                        }else{
+                            return res.status(401).json({ err: 'user needs to admin' })
+                        }
+                    }).catch(err => {
+                       return res.status(401).json({ er: 'token invalid' })
+
+                    })
+                }
+            })
+        }
     }
+
 }
 
 
