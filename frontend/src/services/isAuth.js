@@ -1,0 +1,1 @@
+export const isAthe = ()=> !!localStorage.getItem('app-token');

@@ -1,34 +1,68 @@
-import React from 'react'
+import React, { useState} from 'react'
+import {Redirect} from 'react-router-dom'
+import api from '../../services/api';
 
-import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import './styles.css'
-function Login(){
-    return(
+function Login() {
+    
+        const [email, setEmail] = useState();
+        const [password, setPassword] = useState();
+        const [redirect, setRedirect] = useState(false)
+        
+    
+    
+        async function Login(){
+        await api.post('/user/login',{email : email, password:password})
+        .then(response =>{
+            const {token} = response.data
+            if(token){
+                localStorage.setItem('app-token',token);
+                setRedirect(true)
+            }
+            setRedirect(true)
+        }).catch(err => {
+            localStorage.removeItem('app-token')
+            console.log(err) 
+        })
+    }
+
+    return (
         <div id="login-page">
-            <Header/>
+            {redirect && <Redirect to='/'/>}
+            <Header />
             <div id='login-containner'>
-                
+
                 <form>
-                <h1>Login</h1>
+                    <h1>Login</h1>
                     <div id='login-field'>
-                        <Input type='email'  placeholder='exemple@email.com'/>
-                        <Input type='password'  placeholder='**************'/>
+                        <div id='input'>
+                            <input 
+                            type='email' 
+                            placeholder='exemple@email.com'
+                            onChange={email=>setEmail(email.target.value)}/>
+                           
+                            <input type='password' placeholder='**************' 
+                            onChange= {password =>setPassword(password.target.value)}/>
+                            
+                        </div>
+
+
                     </div>
                     <div id='login-buttons'>
-                        <input type='button' id='btn-back' value='Voltar'/>
-                        <input type='submit' id='btn-logar' value='Entrar'/>
+                        <input type='button' id='btn-back' value='Voltar' />
+                        <input type='button' id='btn-logar' onClick={Login}value='Entrar' />
                     </div>
-                    
+
                 </form>
             </div>
             <div id='login-footer'>
-                <Footer/>
+                <Footer />
             </div>
-            
+
         </div>
-       
+
     );
 }
 
