@@ -8,7 +8,7 @@ import Login from '../pages/Login'
 import ListAdmin from '../pages/HomePageAdm'
 import '../assets/styles/global.css';
 
-//import PrivateRoute from './PrivateRoutes';
+import PrivateRoute from './PrivateRoutes';
 /*
 
 import HomePageUser from './pages/HomePageUser'
@@ -18,19 +18,8 @@ import RegisterBook from './pages/RegisterBook'
 import EditBook from './pages/EditBook'
 
 */
-import { isAthe } from '../services/isAuth'
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route 
-    {...rest} 
-    render={props => 
-        isAthe() ? (
-            <Component {...props} {...rest} />
-        ) : (
-              <Redirect to={{ pathname: '/user/login', state: { from: props.location } }} />
-            )
-    } 
-    />
-)
+
+
 
 
 function Routes() {

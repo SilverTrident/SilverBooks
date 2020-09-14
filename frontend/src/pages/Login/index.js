@@ -18,17 +18,20 @@ function Login() {
         .then(response =>{
             const {token} = response.data
             if(token){
-                localStorage.setItem('app-token',token);
-                setRedirect(true)
+                setRedirect(true);
+                localStorage.setItem('app-token',token);    
+                
             }
-            setRedirect(true)
         }).catch(err => {
             localStorage.removeItem('app-token')
             console.log(err) 
         })
     }
 
+
+
     return (
+        
         <div id="login-page">
             {redirect && <Redirect to='/'/>}
             <Header />
