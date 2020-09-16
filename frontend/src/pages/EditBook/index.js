@@ -92,11 +92,8 @@ function EditBook({match}) {
                             <Input type='text' valo ={imgLink} action={e =>setImgLink(e.target.value)} />                        
                             <Input type='text' valo ={name}  action={e =>setName(e.target.value)}/>
                             <Input type='text'valo ={bookLink} action={e =>setBookLink(e.target.value)} />
-                            <Select>
-                                <option value='0'>Fantasia</option>
-                                <option value='1'>Horror</option>
-                                <option value='2'>Romance</option>
-                            </Select>
+                            <Select value={categories} action={e =>setCategories(e.target.value)}/>
+
                         </div>
                     </div>
 

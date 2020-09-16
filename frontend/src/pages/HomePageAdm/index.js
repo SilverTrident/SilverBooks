@@ -1,9 +1,11 @@
 import React,{ useState, useEffect } from 'react'
 import {Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer'
-import Book from '../../components/Book'
-import Filter from '../../components/Filter'
+import Footer from '../../components/Footer';
+import Book from '../../components/Book';
+import Filter from '../../components/Filter';
+
+
 import api from '../../services/api'
 import './styles.css'
 
@@ -31,7 +33,7 @@ function HomePage() {
         <div id="home-page" className='contanner'>
             <Header />
             <div id='filters'>
-                <Filter name='ficção cientifica'/>
+            <Filter name='ficção cientifica'/>
                 <Filter name='Romance'/>
                 <Filter name='Terror'/>
                 <Filter name='Aventura'/>
@@ -40,6 +42,7 @@ function HomePage() {
                 <Filter name='Programação'/>
                 <Filter name='Jovem adulto'/>
                 <Filter name='Crônicas'/>
+               
             </div>
             <div id="home-page-content" >
                 <main>

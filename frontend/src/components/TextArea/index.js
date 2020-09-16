@@ -6,7 +6,7 @@ function TextArea(props) {
     return (
         <div id='registerBook-area'>
             <label>{props.label}</label>
-              <textarea rows={props.rows} value={props.valo} onChange={props.action}>     </textarea>
+              <textarea rows={props.rows}  value={props.valo} onChange={props.action}>     </textarea>
         </div>
     );
 
