@@ -14,7 +14,7 @@ import BtnDelete from '../../assets/images/icons/BtnDelete.png'
 function HomePage() {
 
     const [books, setBooks] = useState([]);
-
+    const [idBook, setIdBook] = useState();
     async function loadBooks() {
         await api.get(`/admin/listall/`).then(response => {
             setBooks(response.data);
@@ -26,7 +26,7 @@ function HomePage() {
     }, []);
 
 
-
+    
     return (
         <div id="home-page" className='contanner'>
             <Header />
@@ -48,8 +48,7 @@ function HomePage() {
                             <Book titleBook = {book.name} linkImg={book.imgLink} subDescription={book.description}>
                               <Link to= {`/user/edit/${book._id}`}>
                               <img src={BtnEdit} alt='button edit'/>
-                              </Link>
-                              <img src={BtnDelete} alt='button delete'/>
+                              </Link>                                             
                             </Book>
                         ))      
                     }

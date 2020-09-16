@@ -59,6 +59,19 @@ function EditBook({match}) {
                setRedirect(true);
             })
         }
+
+        async function Delete(){
+            const res = window.confirm('Deletar Livro?');
+     
+            if(res){
+                await api.delete(`/admin/${match.params.id}`).then(()=>{
+                    alert('removido');
+                   setRedirect(true);
+                })            
+            }else{
+             alert('cancelado')
+            }
+         }
    
     return (
 
@@ -92,6 +105,7 @@ function EditBook({match}) {
                     </div>
                     <div id='editBook-buttons'>
                         <input type='button' id='btn-editBook' value='Editar Livro' onClick={Save}/>
+                        <input type='button' id='btn-editBook' value='Deletar Livro' onClick={Delete}/>
                     </div>
                 </form>
             </main>
