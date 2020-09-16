@@ -1,10 +1,10 @@
-import React from 'react'
-
+import React,{ useState, useEffect } from 'react'
+import {Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
 import Book from '../../components/Book'
 import Filter from '../../components/Filter'
-
+import api from '../../services/api'
 import './styles.css'
 
 import BtnEdit from '../../assets/images/icons/BtnEdit.png'
@@ -12,6 +12,21 @@ import BtnDelete from '../../assets/images/icons/BtnDelete.png'
 
 
 function HomePage() {
+
+    const [books, setBooks] = useState([]);
+
+    async function loadBooks() {
+        await api.get(`/admin/listall/`).then(response => {
+            setBooks(response.data);
+        })
+    }
+
+    useEffect(() => {
+        loadBooks();
+    }, []);
+
+
+
     return (
         <div id="home-page" className='contanner'>
             <Header />
@@ -26,29 +41,20 @@ function HomePage() {
                 <Filter name='Jovem adulto'/>
                 <Filter name='Crônicas'/>
             </div>
-            <div id="home-page-content" className="container">
+            <div id="home-page-content" >
                 <main>
-                    <Book >
-                        <img src={BtnEdit} alt='button edit'/>
-                        <img src={BtnDelete} alt='button delete'/>
-                    </Book>
-                    <Book >
-                        <img src={BtnEdit} alt='button edit'/>
-                        <img src={BtnDelete} alt='button delete'/>
-                    </Book>
-                    <Book >
-                        <img src={BtnEdit} alt='button edit'/>
-                        <img src={BtnDelete} alt='button delete'/>
-                    </Book>
-                    <Book >
-                        <img src={BtnEdit} alt='button edit'/>
-                        <img src={BtnDelete} alt='button delete'/>
-                    </Book>
-                    <Book >
-                        <img src={BtnEdit} alt='button edit'/>
-                        <img src={BtnDelete} alt='button delete'/>
-                    </Book>
-                    
+                {
+                        books.map(book => ( 
+                            <Book titleBook = {book.name} linkImg={book.imgLink} subDescription={book.description}>
+                              <Link to= {`/user/edit/${book._id}`}>
+                              <img src={BtnEdit} alt='button edit'/>
+                              </Link>
+                              <img src={BtnDelete} alt='button delete'/>
+                            </Book>
+                        ))      
+                    }
+
+                  
                     
                 </main>
             </div>

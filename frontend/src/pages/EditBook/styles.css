@@ -3,7 +3,7 @@
     height: 100vh;
 }
 #card-form{
-    margin: 18rem auto;
+    margin: 8rem auto;
     max-width: 700px;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,7 @@
     justify-content: center;
     border-radius: 0.5rem;  
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75); 
+    height: auto;
 }
 #card-form h1{
     font-size: 2rem;
@@ -87,7 +88,7 @@
      box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
    }
 
-   @media(min-width : 100px){
+   @media(min-width : 900px){
         #card-form{ 
             max-width: 1000px;
             padding: 5rem;
@@ -108,8 +109,8 @@
             margin-left:-14rem ;
             
         }
-        #bot-side textarea{
-            width: 80rem;
+        #bot-side {
+            width: 100%;
         }
 
    }

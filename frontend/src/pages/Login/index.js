@@ -33,7 +33,7 @@ function Login() {
     return (
         
         <div id="login-page">
-            {redirect && <Redirect to='/'/>}
+            {redirect && <Redirect to='/user'/>}
             <Header />
             <div id='login-containner'>
 
