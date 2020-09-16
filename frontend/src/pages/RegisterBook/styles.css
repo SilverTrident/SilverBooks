@@ -27,6 +27,7 @@
     background: var(--color-primary);
     border-radius: 0.8rem;
     box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+    height: 1000px;
     
   }
   form  h1{
@@ -116,7 +117,9 @@
   @media(min-width: 900px ) {
     form{
       width: 50%;
+      height: 1000px;
     }
+
    
   }
   
