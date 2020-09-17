@@ -31,6 +31,12 @@ function RegisterBook() {
                 bookLink,
                 imgLink,
             }).then(()=>{
+                setName('');
+                setCategories('');
+                setDescription('');
+                setBookLink('');
+                setImgLink('');
+
                 alert('Livro criado');
             }).catch(err => {
                 alert(`alert ${err}`)

@@ -13,18 +13,18 @@ import BtnEdit from '../../assets/images/icons/BtnEdit.png'
 import BtnDelete from '../../assets/images/icons/BtnDelete.png'
 
 
-function HomePage() {
+function HomePageAdm() {
 
     const [books, setBooks] = useState([]);
     const [idBook, setIdBook] = useState();
-    async function loadBooks() {
+    async function Books() {
         await api.get(`/admin/listall/`).then(response => {
             setBooks(response.data);
         })
     }
 
     useEffect(() => {
-        loadBooks();
+        Books();
     }, []);
 
 
@@ -55,7 +55,7 @@ function HomePage() {
                             </Book>
                         ))      
                     }
-
+ 
                   
                     
                 </main>
@@ -68,4 +68,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default HomePageAdm;

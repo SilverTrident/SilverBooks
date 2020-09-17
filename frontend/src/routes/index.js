@@ -7,7 +7,7 @@ import DownloadPage from '../pages/DownloadPage';
 import Login from '../pages/Login';
 
 
-import ListAdmin from '../pages/HomePageAdm';
+import HomePageAdm from '../pages/HomePageAdm';
 import EditBook from '../pages/EditBook';
 import RegisterBook from '../pages/RegisterBook'
 
@@ -23,11 +23,14 @@ function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                < Route path="/" exact component={HomePageUser} />
+            < Route path="/" exact component={HomePageUser} />
+            < Route path="/:filter" exact component={HomePageUser} />
+            
                 <Route path='/selectedbook/:id' exact component={DownloadPage} />
                 <Route path='/user/login' exact component={Login} />
 
-                <PrivateRoute path='/user' exact component={ListAdmin} />
+
+                <PrivateRoute path='/user/home' exact component={HomePageAdm} />
                 <PrivateRoute path='/user/edit/:id' exact component={EditBook} />
                 <PrivateRoute path='/user/registerbook' exact component={RegisterBook} />
 

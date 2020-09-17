@@ -77,7 +77,7 @@ function EditBook({match}) {
 
         
         <div id='page-editbook'>
-            {redirect && <Redirect to="/user"/>}
+            {redirect && <Redirect to="/user/home"/>}
             <Header />
             <main>
                 <form id='card-form'>

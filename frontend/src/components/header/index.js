@@ -7,7 +7,7 @@ function Header() {
     return (
         <header id="page-header" >
             <div id='header-container'>
-            <Link to= {`/user/`}>
+            <Link to= {`/user/home`}>
                 <img src={logo} alt="Logo SilverBooks"></img>
                 </Link>
             </div>
