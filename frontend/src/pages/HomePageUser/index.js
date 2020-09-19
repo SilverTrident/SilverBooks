@@ -17,12 +17,14 @@ import Input from '../../components/Input';
 function HomePageUser() {
 
     const [books, setBooks] = useState([]);
+    const [filterBooks, setFilterBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [find, setFind] = useState([]);
 
     async function loadBooks() {
         await api.get(`/${filter}`).then(response => {
             setBooks(response.data);
+            setFilterBooks(response.data)
         })
     }
 
@@ -58,7 +60,8 @@ function HomePageUser() {
         } */
 
          const result = books.filter(r => r.name.includes(find))
-         console.log(result)
+         setFilterBooks(result)
+         console.log(filterBooks)
     }
      
     
@@ -67,7 +70,13 @@ function HomePageUser() {
     
     return (
         <div id='home-page-user'>
-            <Header />
+            
+            <Header>
+                
+                <Input type='text' placeholder='Nome do livro' action={e =>setFind(e.target.value)}/>      
+                  <button onClick={click}>click</button>
+
+            </Header>
             <div id='filters'>
 
             <button  type='button' onClick={()=> setFilter('')}>
@@ -106,11 +115,7 @@ function HomePageUser() {
             
             
             
-            <Input type='text' placeholder='Nome do livro' action={e =>setFind(e.target.value)}/>
            
-           
-            <button onClick={click}>click</button>
-
             <br/>
 
             <div id="home-page-content" className="container">
@@ -120,7 +125,7 @@ function HomePageUser() {
                 <main>  
                     <div id='content-main'>
                     {
-                        books.map(book => ( 
+                        filterBooks.map(book => ( 
                             <Book titleBook = {book.name} linkImg={book.imgLink} subDescription={book.description}>
                               <Link to= {`/selectedbook/${book._id}`}>
                               <img src={BtnDownload} alt='image-button-download' />
