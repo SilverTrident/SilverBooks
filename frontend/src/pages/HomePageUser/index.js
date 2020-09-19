@@ -9,6 +9,7 @@ import Filter from '../../components/Filter';
 import './styles.css';
 
 import BtnDownload from '../../assets/images/icons/BtnDownload.png'
+import Input from '../../components/Input';
 
 
 
@@ -17,6 +18,7 @@ function HomePageUser() {
 
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
+    const [find, setFind] = useState([]);
 
     async function loadBooks() {
         await api.get(`/${filter}`).then(response => {
@@ -29,6 +31,40 @@ function HomePageUser() {
     }, [filter]);
 
 
+    function click(){
+     /*
+          
+        for(var x=0; x < books.length; x++){
+            
+           names.push(books[x].name.toUpperCase()) 
+        }
+
+        console.log(names)
+        setFind(names)
+
+         for(var x=0; x < books.length; x++){
+        var achou = false;
+
+       var names =books[x].name.toUpperCase()
+       
+
+        if(names.indexOf() >=0){
+            console.log(names)
+            achou = true;
+        }
+
+        if(achou = true){
+            array.push(books[x].name.toUpperCase()); 
+        } */
+
+         const result = books.filter(r => r.name.includes(find))
+         console.log(result)
+    }
+     
+    
+   
+   
+    
     return (
         <div id='home-page-user'>
             <Header />
@@ -63,10 +99,20 @@ function HomePageUser() {
             </button>
                 
                 
-                
+            
     
                 
             </div>
+            
+            
+            
+            <Input type='text' placeholder='Nome do livro' action={e =>setFind(e.target.value)}/>
+           
+           
+            <button onClick={click}>click</button>
+
+            <br/>
+
             <div id="home-page-content" className="container">
                 <aside id='aside-left'>
 

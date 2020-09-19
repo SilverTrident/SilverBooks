@@ -7,6 +7,9 @@ button{
     padding: none;
     border: none;
 }
+input{
+    color: black;
+}
 #filters{
     background: var( --color-opacity);
     
