@@ -3,12 +3,15 @@ import React from 'react'
 import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import ButtonLogout from '../../components/ButtonLogout';
 
 import './styles.css'
 function Register() {
     return (
         <div id='register-page'>
-            <Header />
+            <Header link='/user'>
+             <ButtonLogout/>
+            </Header>
 
 
             <div id='register-containner'>

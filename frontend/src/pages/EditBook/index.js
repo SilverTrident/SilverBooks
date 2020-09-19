@@ -7,6 +7,7 @@ import Footer from '../../components/Footer'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
 import TextArea from '../../components/TextArea'
+import ButtonLogout from '../../components/ButtonLogout';
 import './styles.css';
 
 /*Slect e alter css*/
@@ -78,7 +79,9 @@ function EditBook({match}) {
         
         <div id='page-editbook'>
             {redirect && <Redirect to="/user/home"/>}
-            <Header />
+            <Header link='/user'>
+             <ButtonLogout/>
+            </Header>
             <main>
                 <form id='card-form'>
                     <h1>Editar Livro</h1>

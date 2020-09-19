@@ -31,6 +31,7 @@ function Routes() {
 
 
                 <PrivateRoute path='/user/home' exact component={HomePageAdm} />
+                <PrivateRoute path='/user/home/:filter' exact component={HomePageAdm} />
                 <PrivateRoute path='/user/edit/:id' exact component={EditBook} />
                 <PrivateRoute path='/user/registerbook' exact component={RegisterBook} />
 
