@@ -7,6 +7,7 @@ import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ButtonLogout from '../../components/ButtonLogout';
+import SerachBar from '../../components/SerachBar';
 
 import './styles.css'
 
@@ -49,7 +50,7 @@ function RegisterBook() {
 
     return (
         <div id='registerBook-page'>
-           <Header link='/user'>
+           <Header link='/user/home'>
              <ButtonLogout/>
             </Header>
 

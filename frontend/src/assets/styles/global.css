@@ -12,7 +12,17 @@
     padding:0;
     box-sizing: border-box;
 }
-textarea:focus, input:focus, select:focus {
+
+a{
+    color: var(--color-letters);
+    border: none;
+    font-style: none;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: Gerogia, Poppins;
+    font-weight: 600;
+}
+textarea:focus, input:focus, select:focus, button:focus{
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;

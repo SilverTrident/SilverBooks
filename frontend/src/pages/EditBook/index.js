@@ -79,7 +79,7 @@ function EditBook({match}) {
         
         <div id='page-editbook'>
             {redirect && <Redirect to="/user/home"/>}
-            <Header link='/user'>
+            <Header link='/user/home'>
              <ButtonLogout/>
             </Header>
             <main>

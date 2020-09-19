@@ -1,0 +1,25 @@
+#field-find{
+    display: flex
+}
+#field-find input{
+    color: var(--color-special);
+    background: var(--color-background);
+    border: none;
+    border-radius: 2rem 0 0 2rem;
+    padding: 1rem;
+    width: 25rem;
+    height: 2.5rem;
+}
+#field-find button{
+    margin-right: 2rem;
+    background: var(--color-special);
+    width: 6rem;
+    border-radius: 0 2rem 2rem 0;
+    height: 2.5rem;
+}
+#field-find button:hover{
+    cursor: pointer;
+}
+#field-find button img{
+    width: 5.5rem;
+}

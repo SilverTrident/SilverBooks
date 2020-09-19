@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../services/api';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Book from '../../components/Book';
 import Filter from '../../components/Filter';
+import SerachBar from '../../components/SerachBar';
+import BtnDownload from '../../assets/images/icons/BtnDownload.png';
 
 import './styles.css';
-
-import BtnDownload from '../../assets/images/icons/BtnDownload.png'
-import Input from '../../components/Input';
-
-
-
 
 function HomePageUser() {
 
@@ -33,100 +29,76 @@ function HomePageUser() {
     }, [filter]);
 
 
-    function click(){
-     /*
-        
-        if(names.indexOf() >=0){
-            console.log(names)
-            achou = true;
-        }
+    function serach() {
+          
+             //  array.push(books[x].name.toUpperCase()); 
 
-        if(achou = true){
-            array.push(books[x].name.toUpperCase()); 
-        } */
-
-         const result = books.filter(r => r.name.includes(find))
-         setFilterBooks(result)
-         console.log(filterBooks)
+        const result = books.filter(r => r.name.includes(find))
+        setFilterBooks(result)
+        console.log(filterBooks)
     }
-     
-    
-   
-   
-    
+
     return (
         <div id='home-page-user'>
-            
+
             <Header link='/'>
-                <div id='field-find'>   
-                    <input type='search' id ='input'placeholder='Nome do livro'onChange={e =>setFind(e.target.value)}/>       
-                    <button id= 'button'onClick={click}>click</button>
+                <div id='field-find'>
+                    <SerachBar action={serach} clicke={e => setFind(e.target.value)} />
                 </div>
-               
 
             </Header>
 
-
             <div id='filters'>
-
-            <button  type='button' onClick={()=> setFilter(''), ()=>setFilterBooks(books)}>
-                <Filter name='Todos' /> 
-           </button>
-           <button  type='button' onClick={()=> setFilter('1')}>
-                <Filter name='Romance' /> 
-           </button>
-            <button type='button' onClick={()=> setFilter('2')}>
-                <Filter name='Terror' />
-            </button>
-            <button type='button' onClick={()=> setFilter('3')}>
-                <Filter name='Aventura' />
-            </button>
-            <button type='button' onClick={()=> setFilter('4')}>
-                <Filter name='Distopia' />
-            </button>
-            <button type='button' onClick={()=> setFilter('5')}>
-                <Filter name='Games' />
-            </button>
-            <button type='button' onClick={()=> setFilter('6')}>
-                <Filter name='Programação' />
-            </button>
-            <button type='button' onClick={()=> setFilter('7')}>
-                <Filter name='Jovem adulto' />
-            </button>
-            <button type='button' onClick={()=> setFilter('8')}>
-                <Filter name='Crônicas' />
-            </button>            
+                <button type='button' onClick={() => setFilter(''), () => setFilterBooks(books)}>
+                    <Filter name='Todos' />
+                </button>
+                <button type='button' onClick={() => setFilter('1')}>
+                    <Filter name='Romance' />
+                </button>
+                <button type='button' onClick={() => setFilter('2')}>
+                    <Filter name='Terror' />
+                </button>
+                <button type='button' onClick={() => setFilter('3')}>
+                    <Filter name='Aventura' />
+                </button>
+                <button type='button' onClick={() => setFilter('4')}>
+                    <Filter name='Distopia' />
+                </button>
+                <button type='button' onClick={() => setFilter('5')}>
+                    <Filter name='Games' />
+                </button>
+                <button type='button' onClick={() => setFilter('6')}>
+                    <Filter name='Programação' />
+                </button>
+                <button type='button' onClick={() => setFilter('7')}>
+                    <Filter name='Jovem adulto' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
             </div>
-   
 
             <div id="home-page-content" className="container">
                 <aside id='aside-left'>
-
                 </aside>
-                <main>  
+                <main>
                     <div id='content-main'>
-                    {
-                        filterBooks.map(book => ( 
-                            <Book titleBook = {book.name} linkImg={book.imgLink} subDescription={book.description}>
-                              <Link to= {`/selectedbook/${book._id}`}>
-                              <img src={BtnDownload} alt='image-button-download' />
-                              </Link>
-                            </Book>
-                        ))      
-                    }
+                        {
+                            filterBooks.map(book => (
+                                <Book titleBook={book.name} linkImg={book.imgLink} subDescription={book.description}>
+                                    <Link to={`/selectedbook/${book._id}`}>
+                                        <img src={BtnDownload} alt='image-button-download' />
+                                    </Link>
+                                </Book>
+                            ))
+                        }
 
                     </div>
-                   
-
                 </main>
                 <aside id='aside-right'>
-
                 </aside>
             </div>
-
             <Footer />
-
-
         </div>
     );
 }

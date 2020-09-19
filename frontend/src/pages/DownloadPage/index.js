@@ -31,7 +31,7 @@ function DownloadPage({ match }) {
 
         <div id='pageDowload'>
             <Header link='/'>
-                Todos os Livros
+                <Link to='/'>Todos os Livros</Link>
             </Header>
             
 
