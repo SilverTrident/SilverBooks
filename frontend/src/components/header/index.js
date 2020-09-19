@@ -7,11 +7,14 @@ function Header(props) {
     return (
         <header id="page-header" >
             <div id='header-container'>
-            <Link to= {`/user/home`}>
+                
+            <Link to= {props.link} >
                 <img src={logo} alt="Logo SilverBooks"></img>
-                </Link>
-
-{props.children}
+            </Link>
+            <div id='childrens'>
+                {props.children}
+            </div>
+            
             </div>
         </header>
     )

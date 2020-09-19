@@ -35,21 +35,7 @@ function HomePageUser() {
 
     function click(){
      /*
-          
-        for(var x=0; x < books.length; x++){
-            
-           names.push(books[x].name.toUpperCase()) 
-        }
-
-        console.log(names)
-        setFind(names)
-
-         for(var x=0; x < books.length; x++){
-        var achou = false;
-
-       var names =books[x].name.toUpperCase()
-       
-
+        
         if(names.indexOf() >=0){
             console.log(names)
             achou = true;
@@ -71,15 +57,19 @@ function HomePageUser() {
     return (
         <div id='home-page-user'>
             
-            <Header>
-                
-                <Input type='text' placeholder='Nome do livro' action={e =>setFind(e.target.value)}/>      
-                  <button onClick={click}>click</button>
+            <Header link='/'>
+                <div id='field-find'>   
+                    <input type='search' id ='input'placeholder='Nome do livro'onChange={e =>setFind(e.target.value)}/>       
+                    <button id= 'button'onClick={click}>click</button>
+                </div>
+               
 
             </Header>
+
+
             <div id='filters'>
 
-            <button  type='button' onClick={()=> setFilter('')}>
+            <button  type='button' onClick={()=> setFilter(''), ()=>setFilterBooks(books)}>
                 <Filter name='Todos' /> 
            </button>
            <button  type='button' onClick={()=> setFilter('1')}>
@@ -105,18 +95,9 @@ function HomePageUser() {
             </button>
             <button type='button' onClick={()=> setFilter('8')}>
                 <Filter name='Crônicas' />
-            </button>
-                
-                
-            
-    
-                
+            </button>            
             </div>
-            
-            
-            
-           
-            <br/>
+   
 
             <div id="home-page-content" className="container">
                 <aside id='aside-left'>

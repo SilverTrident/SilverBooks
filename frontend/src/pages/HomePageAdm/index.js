@@ -10,7 +10,8 @@ import api from '../../services/api'
 import './styles.css'
 
 import BtnEdit from '../../assets/images/icons/BtnEdit.png'
-import BtnDelete from '../../assets/images/icons/BtnDelete.png'
+import ButtonLogout from '../../components/ButtonLogout';
+
 
 
 function HomePageAdm() {
@@ -31,7 +32,9 @@ function HomePageAdm() {
     
     return (
         <div id="home-page" className='contanner'>
-            <Header />
+            <Header link='/user'>
+             <ButtonLogout/>
+            </Header>
             <div id='filters'>
             <Filter name='ficção cientifica'/>
                 <Filter name='Romance'/>

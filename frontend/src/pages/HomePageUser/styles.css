@@ -22,7 +22,7 @@ input{
     padding: 2rem 6rem;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   }
 #home-page-content{
@@ -42,6 +42,26 @@ input{
     box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
+#field-find{
+    display: flex
+}
+#field-find input{
+    color: var(--color-special);
+    background: var(--color-background);
+    border: none;
+    border-radius: 2rem 0 0 2rem;
+    padding: 1rem;
+    width: 25rem;
+}
+#field-find button{
+    margin-right: 2rem;
+    background: var(--color-special);
+    width: 8rem;
+    border-radius: 0 2rem 2rem 0;
+}
+#field-find button:hover{
+    cursor: pointer;
+}
 main{
     margin-bottom: 3rem;
     

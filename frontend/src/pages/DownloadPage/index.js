@@ -30,18 +30,10 @@ function DownloadPage({ match }) {
 
 
         <div id='pageDowload'>
-            <Header />
-            <div id='filters'>
-                <Filter name='ficção cientifica' />
-                <Filter name='Romance' />
-                <Filter name='Terror' />
-                <Filter name='Aventura' />
-                <Filter name='Distopia' />
-                <Filter name='Games' />
-                <Filter name='Programação' />
-                <Filter name='Jovem adulto' />
-                <Filter name='Crônicas' />
-            </div>
+            <Header link='/'>
+                Todos os Livros
+            </Header>
+            
 
             <div id='containner-pageDowload'>
                 <aside id='left-aside'>
@@ -62,7 +54,7 @@ function DownloadPage({ match }) {
                         </div>
                     </header>
                     <footer>
-                        <a href={book.bookLink}>
+                        <a href={book.bookLink} target="_blank">
                             <input type='button' id='btn-download' value='Download' />
                         </a>
 
