@@ -11,7 +11,7 @@ import './styles.css'
 
 import BtnEdit from '../../assets/images/icons/BtnEdit.png'
 import ButtonLogout from '../../components/ButtonLogout';
-import SerachBar from '../../components/SerachBar';
+import SearchBar from '../../components/SearchBar';
 
 
 
@@ -50,7 +50,7 @@ function HomePageAdm() {
     return (
         <div id="home-page" className='contanner'>
             <Header link='/user' label='/user/registerbook'>
-            <SerachBar action ={click}clicke = {e => setFind(e.target.value)}/>
+            <SearchBar action ={click}clicke = {e => setFind(e.target.value)}/>
                 <ButtonLogout />
 
             </Header>

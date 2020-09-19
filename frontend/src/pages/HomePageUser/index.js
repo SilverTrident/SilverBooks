@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Book from '../../components/Book';
 import Filter from '../../components/Filter';
-import SerachBar from '../../components/SerachBar';
+import SearchBar from '../../components/SearchBar';
 import BtnDownload from '../../assets/images/icons/BtnDownload.png';
 
 import './styles.css';
@@ -43,7 +43,7 @@ function HomePageUser() {
 
             <Header link='/'>
                 <div id='field-find'>
-                    <SerachBar action={serach} clicke={e => setFind(e.target.value)} />
+                    <SearchBar action={serach} clicke={e => setFind(e.target.value)} />
                 </div>
 
             </Header>
