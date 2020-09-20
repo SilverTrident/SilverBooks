@@ -6,9 +6,10 @@ const authSecret = require('../config/authSecret.json');
 
 function generateToken(params = {}) {
     return JWT.sign(params, authSecret.secret, {
-        expiresIn: 7200,
+        expiresIn: 172800,
     });
 }
+
 class ControllerUser {
     async created(req, res) {
         const user = new ModelUser(req.body);
@@ -23,7 +24,7 @@ class ControllerUser {
                         .then(response => {
                             user.password = undefined;
                             user.admin = undefined;
-                            
+
                             return res.status(200).json(
                                 {
                                     response,
@@ -39,8 +40,6 @@ class ControllerUser {
             })
         })
     }
-
-
     async login(req, res) {
         const { email, password } = req.body;
         await (ModelUser.findOne({ email }).select('+password')).then((response) => {

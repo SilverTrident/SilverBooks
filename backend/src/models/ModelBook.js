@@ -8,6 +8,7 @@ const BookSchema = new Schema({
     description: { type: String, required: true },
     bookLink: { type: String, required: true },
     imgLink : {type: String, required: true},
+    tags: [String],
     createdAt: {
         type: Date,
         default: Date.now()

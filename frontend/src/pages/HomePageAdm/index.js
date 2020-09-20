@@ -49,7 +49,7 @@ function HomePageAdm() {
 
     return (
         <div id="home-page" className='contanner'>
-            <Header link='/user' label='/user/registerbook'>
+            <Header link='/user/home' label='/user/registerbook'>
             <SearchBar action ={click}clicke = {e => setFind(e.target.value)}/>
                 <ButtonLogout />
 
@@ -79,6 +79,33 @@ function HomePageAdm() {
                 </button>
                 <button type='button' onClick={() => setFilter('7')}>
                     <Filter name='Jovem adulto' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
+                </button>
+                <button type='button' onClick={() => setFilter('8')}>
+                    <Filter name='Crônicas' />
                 </button>
                 <button type='button' onClick={() => setFilter('8')}>
                     <Filter name='Crônicas' />

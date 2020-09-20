@@ -1,5 +1,5 @@
 const ModelBook = require('../models/ModelBook');
-
+const generate = require('../functions/FunctionGenerateTag');
 
 
 
@@ -10,6 +10,7 @@ class ControllerBook {
         await book
             .save()
             .then(response => {
+                 generate(response.id)
                 return res.status(200).json(response);
             })
             .catch(err => {
