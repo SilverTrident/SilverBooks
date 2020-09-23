@@ -8,18 +8,19 @@
     border-radius: 2rem 0 0 2rem;
     padding: 1rem;
     width: 25rem;
-    height: 2.5rem;
+    height: 3rem;
 }
-#field-find button{
+#field-find #logo{
     margin-right: 2rem;
-    background: var(--color-special);
-    width: 6rem;
+    background: var(--color-background);
+    width: 3rem;
     border-radius: 0 2rem 2rem 0;
-    height: 2.5rem;
+    height: 3rem;
 }
-#field-find button:hover{
-    cursor: pointer;
-}
-#field-find button img{
+
+#field-find #logo img{
+    margin-left: -3rem ;
+    margin-bottom: -0.5rem;
     width: 5.5rem;
+    opacity: 0.5;
 }

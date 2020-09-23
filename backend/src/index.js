@@ -2,7 +2,8 @@ const RouteBook = require('./routes/RouteBook');
 const RouteUser = require('./routes/RoutesUser')
 const express =require('express');
 
-const cors = require('cors')
+const cors = require('cors');
+const { connect } = require('mongoose');
 const server = express();
 
 
@@ -18,5 +19,5 @@ server.use('/user',RouteUser);
 
 
 
-server.listen('3001');
+server.listen('3001',()=>console.log('connect...'));
 

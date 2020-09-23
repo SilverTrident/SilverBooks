@@ -1,28 +1,36 @@
-const MiddlewareBook = async(req,res,next)=>{
+const MiddlewareBook = async (req, res, next) => {
     const {
-        name,
+        title,
         categories,
+        author,
         description,
+        subDescription,
         bookLink,
         imgLink
 
-    }= req.body;
+    } = req.body;
 
-    if(!name){
-        return res.status(400).json({ err: 'nome é obrigatorio' });
+    if (!title) {
+        return res.status(400).json({ err: 'name is necessary' });
 
-    }else if(!categories){
-        return res.status(400).json({ err: 'categoria é obrigatoria' });
+    } else if (!categories) {
+        return res.status(400).json({ err: 'category is necessary' });
 
-    }else if(!description){
-        return res.status(400).json({ err: 'descrição é obrigatorio' });
+    } else if (!author) {
+        return res.status(400).json({ err: 'author is necessary' });
 
-    }else if(!bookLink){
-        return res.status(400).json({ err: 'link é obrigatorio' });
-    }else if(!imgLink){
-        return res.status(400).json({ err: 'link é obrigatorio' });
+    } else if (!description) {
+        return res.status(400).json({ err: 'description is necessary' });
+
+    } else if (!subDescription) {
+        return res.status(400).json({ err: 'subDescription is necessary' });
+   
+    }else if (!bookLink) {
+        return res.status(400).json({ err: 'link book is necessary' });
+    } else if (!imgLink) {
+        return res.status(400).json({ err: 'link img is necessary' });
     }
-    else{
+    else {
         next();
     }
 }

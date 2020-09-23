@@ -12,6 +12,10 @@ async function generateTag(Idbook) {
     text1 = response.description;
     tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
   }
+  if (response.author) {
+    text1 = response.author;
+    tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
+  }
   return tags;
 }
 

@@ -18,45 +18,44 @@ import SearchBar from '../../components/SearchBar';
 function HomePageAdm() {
 
     const [books, setBooks] = useState([]);
-    const [filterBooks, setFilterBooks] = useState([]);
-    const [find, setFind] = useState([]);
     const [filter, setFilter] = useState('');
+    const [query, setQuery] = useState('');
 
 
     async function Books() {
-        await api.get(`/admin/listall/${filter}`).then(response => {
+
+        let url 
+        if(query){
+            url = `/admin/results?search_query=${query}`
+        }else{
+            url =`/admin/listall/${filter}`
+        }
+
+        await api.get(url).then(response => {
             setBooks(response.data);
-            setFilterBooks(response.data);
+            
         })
     }
 
     useEffect(() => {
         Books();
-    }, [filter]);
+    }, [filter,query]);
 
 
 
-    function click() {
-
-        //array.push(books[x].name.toUpperCase()); 
-
-
-        const result = books.filter(r => r.name.includes(find))
-        setFilterBooks(result)
-        console.log(filterBooks)
-    }
 
 
     return (
         <div id="home-page" className='contanner'>
-            <Header link='/user/home' label='/user/registerbook'>
-            <SearchBar action ={click}clicke = {e => setFind(e.target.value)}/>
-                <ButtonLogout />
+             <Header link='/'>
+                <div id='field-find'>
+                    <SearchBar  clicke={e => setQuery(e.target.value)} />
+                </div>
 
             </Header>
             <div id='filters'>
 
-                <button type='button' onClick={() => setFilter(''), () => setFilterBooks(books)}>
+                <button type='button' onClick={() => setFilter('')}>
                     <Filter name='Todos' />
                 </button>
                 <button type='button' onClick={() => setFilter('1')}>
@@ -114,8 +113,8 @@ function HomePageAdm() {
             <div id="home-page-content" >
                 <main>
                     {
-                        filterBooks.map(book => (
-                            <Book titleBook={book.name} linkImg={book.imgLink} subDescription={book.description}>
+                        books.map(book => (
+                            <Book titleBook={book.title+" - "+book.author} linkImg={book.imgLink} subDescription={book.description}>
                                 <Link to={`/user/edit/${book._id}`}>
                                     <img src={BtnEdit} alt='button edit' />
                                 </Link>

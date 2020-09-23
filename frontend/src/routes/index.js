@@ -4,8 +4,10 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import HomePageUser from '../pages/HomePageUser';
 import DownloadPage from '../pages/DownloadPage';
-import Login from '../pages/Login';
 
+
+
+import Login from '../pages/Login';
 
 import HomePageAdm from '../pages/HomePageAdm';
 import EditBook from '../pages/EditBook';
@@ -24,7 +26,10 @@ function Routes() {
         <BrowserRouter>
             <Switch>
             < Route path="/" exact component={HomePageUser} />
+            
             < Route path="/:filter" exact component={HomePageUser} />
+            < Route path="/" exact component={HomePageUser} />
+           
             
                 <Route path='/selectedbook/:id' exact component={DownloadPage} />
                 <Route path='/user/login' exact component={Login} />

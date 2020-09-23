@@ -29,16 +29,16 @@ class ControllerBook {
     }
     async listFind(req, res) {
 
-        const regex = /[\s.,\/ \-]/;
+        const regex = /[\s.,\/ \-]/; 
         let find = req.query.search_query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex)
+        console.log()
         const respo =  await ModelBook.find({         
-            'tags': { '$in': find }
+            'tags': { '$all': find }
+            //$in -all or
         })
         if (respo) {
-            console.log('ok')
             return res.send(respo);
         } else {
-            console.log('err')
             return res.send('err');
         }
 
@@ -48,6 +48,7 @@ class ControllerBook {
     async listCategory(req, res) {
         await ModelBook.find({
             'categories': { '$in': req.params.category }
+            
         }).sort('createdAt').
             then(response => {
                 return res.status(200).json(response);

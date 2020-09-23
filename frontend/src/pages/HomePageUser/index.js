@@ -13,43 +13,43 @@ import './styles.css';
 function HomePageUser() {
 
     const [books, setBooks] = useState([]);
-    const [filterBooks, setFilterBooks] = useState([]);
     const [filter, setFilter] = useState('');
-    const [find, setFind] = useState([]);
+    const [query, setQuery] = useState('');
+    
 
     async function loadBooks() {
-        await api.get(`/${filter}`).then(response => {
+        let url 
+        if(query){
+            url = `/results?search_query=${query}`
+        }else{
+            url =`/${filter}`
+        }
+
+        await api.get(url).then(response => {
             setBooks(response.data);
-            setFilterBooks(response.data)
+            
         })
     }
 
+
+
     useEffect(() => {
         loadBooks();
-    }, [filter]);
+    }, [filter,query]);
 
-
-    function serach() {
-          
-             //  array.push(books[x].name.toUpperCase()); 
-
-        const result = books.filter(r => r.name.includes(find))
-        setFilterBooks(result)
-        console.log(filterBooks)
-    }
 
     return (
         <div id='home-page-user'>
 
             <Header link='/'>
                 <div id='field-find'>
-                    <SearchBar action={serach} clicke={e => setFind(e.target.value)} />
+                    <SearchBar  clicke={e => setQuery(e.target.value)} />
                 </div>
 
             </Header>
 
             <div id='filters'>
-                <button type='button' onClick={() => setFilter(''), () => setFilterBooks(books)}>
+                <button type='button' onClick={() => setFilter('')}>
                     <Filter name='Todos' />
                 </button>
                 <button type='button' onClick={() => setFilter('1')}>
@@ -84,8 +84,8 @@ function HomePageUser() {
                 <main>
                     <div id='content-main'>
                         {
-                            filterBooks.map(book => (
-                                <Book titleBook={book.name} linkImg={book.imgLink} subDescription={book.description}>
+                            books.map(book => (
+                                <Book titleBook={book.title + " - "+book.author} linkImg={book.imgLink} subDescription={book.description}>
                                     <Link to={`/selectedbook/${book._id}`}>
                                         <img src={BtnDownload} alt='image-button-download' />
                                     </Link>

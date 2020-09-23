@@ -7,7 +7,7 @@ import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ButtonLogout from '../../components/ButtonLogout';
-import SerachBar from '../../components/SerachBar';
+import SearchBar from '../../components/SearchBar';
 
 import './styles.css'
 

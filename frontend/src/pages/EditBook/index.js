@@ -1,5 +1,5 @@
-import React ,{useState,useEffect}from 'react';
-import {Redirect} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
@@ -13,74 +13,80 @@ import './styles.css';
 /*Slect e alter css*/
 
 
-function EditBook({match}) {
+function EditBook({ match }) {
 
-    
-    const [name, setName] = useState();
+
+    const [title, setTitle] = useState();
     const [categories, setCategories] = useState();
+    const [author, setAuthor] = useState();
     const [description, setDescription] = useState();
+    const [subDescription, setSubDescription] = useState();
     const [bookLink, setBookLink] = useState();
     const [imgLink, setImgLink] = useState();
     const [redirect, setRedirect] = useState(false);
 
 
-   
-   
-    async function LoadBookData(){
+
+
+    async function LoadBookData() {
         await api.get(`/admin/edit/${match.params.id}`).
-        then(response =>{
-            console.log(response) 
-            
-            setName(response.data.name);
-            setCategories(response.data.categories);
-            setDescription(response.data.description);
-            setBookLink(response.data.bookLink);
-            setImgLink(response.data.imgLink);
-        }).catch(err => {
-            
-            console.log(err) 
-        })
+            then(response => {
+                console.log(response)
+
+                setTitle(response.data.title);
+                setCategories(response.data.categories);
+                setAuthor(response.data.author)
+                setDescription(response.data.description);
+                setBookLink(response.data.bookLink);
+                setImgLink(response.data.imgLink);
+                setSubDescription(response.data.subDescription)
+            }).catch(err => {
+
+                console.log(err)
+            })
     }
 
 
 
-        useEffect(() => {
-            LoadBookData();
-        }, []);
+    useEffect(() => {
+        LoadBookData();
+    }, []);
 
 
-        async function Save(){
-            await api.put(`/admin/${match.params.id}`,{
-                name,
-                categories,
-                description,
-                bookLink,
-                imgLink,
-            }).then(()=>{
-               setRedirect(true);
+    async function Save() {
+        await api.put(`/admin/${match.params.id}`, {
+            title,
+            categories,
+            author,
+            description,
+            subDescription,
+            bookLink,
+            imgLink,
+        }).then(() => {
+            setRedirect(true);
+        })
+    }
+
+    async function Delete() {
+        const res = window.confirm('Deletar Livro?');
+
+        if (res) {
+            await api.delete(`/admin/${match.params.id}`).then(() => {
+                alert('removido');
+                setRedirect(true);
             })
+        } else {
+            alert('cancelado')
         }
+    }
 
-        async function Delete(){
-            const res = window.confirm('Deletar Livro?');
-     
-            if(res){
-                await api.delete(`/admin/${match.params.id}`).then(()=>{
-                    alert('removido');
-                   setRedirect(true);
-                })            
-            }else{
-             alert('cancelado')
-            }
-         }
-   
     return (
 
-        
+
         <div id='page-editbook'>
-            {redirect && <Redirect to="/user/home"/>}
+            {redirect && <Redirect to="/user/home" />}
             <Header link='/user/home'>
-             <ButtonLogout/>
+                <ButtonLogout />
             </Header>
             <main>
                 <form id='card-form'>
@@ -91,25 +97,26 @@ function EditBook({match}) {
                         </div>
 
                         <div id='fields-containner'>
-                
-                            <Input type='text' valo ={imgLink} action={e =>setImgLink(e.target.value)} />                        
-                            <Input type='text' valo ={name}  action={e =>setName(e.target.value)}/>
-                            <Input type='text'valo ={bookLink} action={e =>setBookLink(e.target.value)} />
-                            <Select value={categories} action={e =>setCategories(e.target.value)}/>
+                            <Input type='text' valo={title} action={e => setTitle(e.target.value)} />
+                            <Input type='text' valo ={author}  action={e =>setAuthor(e.target.value)}/>
+                            <Input type='text' valo={imgLink} action={e => setImgLink(e.target.value)} />
+                            <Input type='text' valo={bookLink} action={e => setBookLink(e.target.value)} />
+                            <Select value={categories} action={e => setCategories(e.target.value)} />
 
                         </div>
                     </div>
 
                     <div id='bot-side'>
-                        <TextArea valo ={description} label='Descrição completa do livro:' action={e =>setDescription(e.target.value)} />
+                        <TextArea valo={subDescription} label='Descrição minima do livro:' action={e => setSubDescription(e.target.value)} />
+                        <TextArea valo={description} label='Descrição completa do livro:' action={e => setDescription(e.target.value)} />
                     </div>
                     <div id='editBook-buttons'>
-                        <input type='button' id='btn-editBook' value='Editar Livro' onClick={Save}/>
-                        <input type='button' id='btn-editBook' value='Deletar Livro' onClick={Delete}/>
+                        <input type='button' id='btn-editBook' value='Editar Livro' onClick={Save} />
+                        <input type='button' id='btn-editBook' value='Deletar Livro' onClick={Delete} />
                     </div>
                 </form>
             </main>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

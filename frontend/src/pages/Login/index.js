@@ -5,7 +5,9 @@ import api from '../../services/api';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import './styles.css'
-function Login() {
+
+
+function Login(props) {
     
         const [email, setEmail] = useState();
         const [password, setPassword] = useState();
@@ -18,7 +20,8 @@ function Login() {
         .then(response =>{
             const {token} = response.data
             if(token){
-                setRedirect(true);
+                props.history.push('/user/home');
+
                 localStorage.setItem('app-token',token);    
                 
             }
@@ -33,7 +36,7 @@ function Login() {
     return (
         
         <div id="login-page">
-            {redirect && <Redirect to='/user/home'/>}
+           
             <Header />
             <div id='login-containner'>
 
