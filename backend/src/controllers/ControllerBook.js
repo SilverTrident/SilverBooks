@@ -10,54 +10,72 @@ class ControllerBook {
         await book
             .save()
             .then(response => {
-                 generate(response.id)
+                generate(response.id)
                 return res.status(200).json(response);
             })
             .catch(err => {
                 return res.status(500).json(err);
             })
     }
-    async listAll(req,res){
+    async listAll(req, res) {
         await ModelBook.find().
-        sort('createdAt').
-        then( response =>{
-            return res.status(200).json(response);
-        }).
-        catch(err => {
-            return res.status(500).json(err);
-        }) 
-    }
-    async listCategory(req,res){
-        await ModelBook.find({
-            'categories':{'$in':req.params.category}
-        }). sort('createdAt').
-        then(response => {
-            return res.status(200).json(response);
-        }
-        ).catch(err => {
-            return res.status(500).json(err);
-        });
-    }
-    async listOne(req,res){
-        await ModelBook.findById(req.params.id).
-        then(response => {
-            if (response) {
+            sort('createdAt').
+            then(response => {
                 return res.status(200).json(response);
-            } else {
-                return res.status(404).json({ err: 'book not found' });
-            }
-
-        }
-        ).catch(err => {
-            return res.status(500).json({ err: 'book not found'});
-        })
+            }).
+            catch(err => {
+                return res.status(500).json(err);
+            })
     }
-    async update(req,res){
+    async listFind(req, res) {
+
+        const regex = /[\s.,\/ \-]/;
+        let find = req.query.query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex)
+        const respo =  await ModelBook.find({         
+            'tags': { '$all': find }
+        })
+        if (respo) {
+            console.log('ok')
+            return res.send(respo);
+        } else {
+            console.log('err')
+            return res.send('err');
+        }
+
+
+
+    }
+    async listCategory(req, res) {
+        await ModelBook.find({
+            'categories': { '$in': req.params.category }
+        }).sort('createdAt').
+            then(response => {
+                return res.status(200).json(response);
+            }
+            ).catch(err => {
+                return res.status(500).json(err);
+            });
+    }
+    async listOne(req, res) {
+        await ModelBook.findById(req.params.id).
+            then(response => {
+                if (response) {
+                    return res.status(200).json(response);
+                } else {
+                    return res.status(404).json({ err: 'book not found' });
+                }
+
+            }
+            ).catch(err => {
+                return res.status(500).json({ err: 'book not found' });
+            })
+    }
+    async update(req, res) {
         await ModelBook.findOneAndUpdate(
-            {'_id' : req.params.id},
+            { '_id': req.params.id },
             req.body,
-            {new : true}).
-            then((response)=>{
+            { new: true }).
+            then((response) => {
                 return res.status(200).json(response);
             }).catch(err => {
                 return res.status(500).json(err);
