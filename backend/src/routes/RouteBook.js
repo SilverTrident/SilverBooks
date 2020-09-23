@@ -16,7 +16,7 @@ route.get('/admin/listall/:category',ControllerBook.listCategory);
 
 route.get('/selectedbook/:id', ControllerBook.listOne)
 route.get('/',ControllerBook.listAll);
-route.get('/find',ControllerBook.listFind);
+route.get('/results',ControllerBook.listFind);
 route.get('/:category',ControllerBook.listCategory);
 
 

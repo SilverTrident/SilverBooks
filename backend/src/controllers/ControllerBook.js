@@ -30,9 +30,9 @@ class ControllerBook {
     async listFind(req, res) {
 
         const regex = /[\s.,\/ \-]/;
-        let find = req.query.query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex)
+        let find = req.query.search_query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex)
         const respo =  await ModelBook.find({         
-            'tags': { '$all': find }
+            'tags': { '$in': find }
         })
         if (respo) {
             console.log('ok')
