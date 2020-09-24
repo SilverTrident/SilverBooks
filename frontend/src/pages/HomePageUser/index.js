@@ -85,7 +85,7 @@ function HomePageUser() {
                     <div id='content-main'>
                         {
                             books.map(book => (
-                                <Book titleBook={book.title + " - "+book.author} linkImg={book.imgLink} subDescription={book.description}>
+                                <Book titleBook={book.title + " - "+book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
                                     <Link to={`/selectedbook/${book._id}`}>
                                         <img src={BtnDownload} alt='image-button-download' />
                                     </Link>

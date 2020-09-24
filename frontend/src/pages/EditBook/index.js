@@ -89,7 +89,7 @@ function EditBook({ match }) {
                 <ButtonLogout />
             </Header>
             <main>
-                <form id='card-form'>
+                <form id='edit-book-form'>
                     <h1>Editar Livro</h1>
                     <div id='top-side'>
                         <div id='contanner-img'>
@@ -97,9 +97,13 @@ function EditBook({ match }) {
                         </div>
 
                         <div id='fields-containner'>
+                            <span>Título:</span>
                             <Input type='text' valo={title} action={e => setTitle(e.target.value)} />
+                            <span>Autor:</span>
                             <Input type='text' valo ={author}  action={e =>setAuthor(e.target.value)}/>
+                            <span>Link da imagem:</span>
                             <Input type='text' valo={imgLink} action={e => setImgLink(e.target.value)} />
+                            <span>Link do Livro</span>
                             <Input type='text' valo={bookLink} action={e => setBookLink(e.target.value)} />
                             <Select value={categories} action={e => setCategories(e.target.value)} />
 

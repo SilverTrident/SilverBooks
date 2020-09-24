@@ -17,7 +17,7 @@
     
   }
 
-  form {
+  #registe-user-form {
     max-width: 1000px;
     height: 65rem;
     display: flex;
@@ -30,7 +30,7 @@
     box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
     
   }
-  form  h1{
+  #registe-user-form  h1{
     font-weight: 400;
     font-family:  Georgia;
     margin-bottom: 3rem;
@@ -85,7 +85,7 @@
   }
 
   @media(min-width: 800px ) {
-    form{
+    #registe-user-form{
       width: 70%;
     }
    

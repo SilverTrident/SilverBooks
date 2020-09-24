@@ -38,7 +38,7 @@
 }
 
 
-  form {
+#form-login {
     max-width: 900px;
     height: 48rem;
     display: flex;
@@ -51,7 +51,7 @@
     box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
     
   }
-  form  h1{
+  #form-login  h1{
     font-weight: 400;
     font-family:  Georgia;
     margin-bottom: 3rem;
@@ -107,7 +107,7 @@
 
 
   @media(min-width: 800px ) and (min-height: 800px){
-    form{
+    #form-login{
       width: 100%;
     }
     #login-footer{

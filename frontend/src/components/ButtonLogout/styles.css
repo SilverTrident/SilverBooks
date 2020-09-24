@@ -1,5 +1,15 @@
+
+#area-logout :hover{
+    cursor: pointer;
+    
+}
 #area-logout a{
     color: var(--color-letter);
+    opacity: 0.5;
+}
+#area-logout a:hover{
+    cursor: pointer;
+    opacity: 1;
 }
 #area-logout a button img{
     width: 1.9rem;

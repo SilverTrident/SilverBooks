@@ -19,7 +19,7 @@ class ControllerBook {
     }
     async listAll(req, res) {
         await ModelBook.find().
-            sort('createdAt').
+        sort({'createdAt':'desc'}).
             then(response => {
                 return res.status(200).json(response);
             }).

@@ -24,34 +24,36 @@ function HomePageAdm() {
 
     async function Books() {
 
-        let url 
-        if(query){
+        let url
+        if (query) {
             url = `/admin/results?search_query=${query}`
-        }else{
-            url =`/admin/listall/${filter}`
+        } else {
+            url = `/admin/listall/${filter}`
         }
 
         await api.get(url).then(response => {
             setBooks(response.data);
-            
+
         })
     }
 
     useEffect(() => {
         Books();
-    }, [filter,query]);
-
-
-
-
+    }, [filter, query]);
 
     return (
         <div id="home-page" className='contanner'>
-             <Header link='/'>
-                <div id='field-find'>
-                    <SearchBar  clicke={e => setQuery(e.target.value)} />
-                </div>
+            <Header >
 
+                <div>
+                    <Link to='/user/registerbook'>Cadastrar Novo Livro</Link>
+                </div>
+                <div id='header-find'>
+                    <SearchBar clicke={e => setQuery(e.target.value)} />
+                </div>
+                <div id='header-buttons'>
+                    <ButtonLogout />
+                </div>
             </Header>
             <div id='filters'>
 
@@ -110,20 +112,18 @@ function HomePageAdm() {
                     <Filter name='Crônicas' />
                 </button>
             </div>
+            
             <div id="home-page-content" >
                 <main>
                     {
                         books.map(book => (
-                            <Book titleBook={book.title+" - "+book.author} linkImg={book.imgLink} subDescription={book.description}>
+                            <Book titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
                                 <Link to={`/user/edit/${book._id}`}>
                                     <img src={BtnEdit} alt='button edit' />
                                 </Link>
                             </Book>
                         ))
                     }
-
-
-
                 </main>
             </div>
             <div id='back-page'>

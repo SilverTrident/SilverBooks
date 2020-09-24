@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import api from '../../services/api';
 
 import Header from '../../components/Header'
@@ -11,7 +11,7 @@ function Login(props) {
     
         const [email, setEmail] = useState();
         const [password, setPassword] = useState();
-        const [redirect, setRedirect] = useState(false)
+        
         
     
     
@@ -40,7 +40,7 @@ function Login(props) {
             <Header />
             <div id='login-containner'>
 
-                <form>
+                <form id='form-login'>
                     <h1>Login</h1>
                     <div id='login-field'>
                         <div id='input'>
@@ -57,7 +57,7 @@ function Login(props) {
 
                     </div>
                     <div id='login-buttons'>
-                        <input type='button' id='btn-back' value='Voltar' />
+                        <Link to='/'><input type='button' id='btn-back' value='Voltar' /></Link>
                         <input type='button' id='btn-logar' onClick={Login}value='Entrar' />
                     </div>
 

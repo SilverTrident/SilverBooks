@@ -16,7 +16,7 @@ function Register() {
 
             <div id='register-containner'>
 
-                <form>
+                <form id='registe-user-form'>
                     <h1>Cadastrar Usuário</h1>
                     <div id='register-field'>
                         <Input type='text'  placeholder='Digite seu nome' />

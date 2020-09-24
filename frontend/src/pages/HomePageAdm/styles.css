@@ -36,3 +36,12 @@
   width: 90%;
 }
 
+
+
+
+
+@media(min-width: 800px ) {
+  #header-find{
+    margin-right: 4rem;
+  }
+}

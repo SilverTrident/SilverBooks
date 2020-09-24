@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
 }
-#card-form{
+#edit-book-form{
     margin: 8rem auto;
     max-width: 700px;
     display: flex;
@@ -14,7 +14,7 @@
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75); 
     height: auto;
 }
-#card-form h1{
+#edit-book-form h1{
     font-size: 2rem;
     font-family: Georgia, Roboto;
     font-style: oblique;
@@ -89,7 +89,7 @@
    }
 
    @media(min-width : 900px){
-        #card-form{ 
+        #edit-book-form{ 
             max-width: 1000px;
             padding: 5rem;
         }
