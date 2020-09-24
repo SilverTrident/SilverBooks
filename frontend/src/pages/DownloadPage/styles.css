@@ -4,28 +4,27 @@
 }
 #containner-pageDowload{
     
-    margin-top: 10rem;
+   
     display: flex;
     flex-direction: column;
     margin-left: 2rem ;
     margin-right: 2rem;   
 
 }
-#filters{
-    background: var( --color-opacity);
-    
-    margin: 0 2rem;
-    border-radius: 1rem;
 
-    margin-top: 5rem;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2rem 6rem;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10rem;
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-  }
+#all-books-link {
+    margin: 5rem;
+}
+#all-books-link a{
+    color: var(--color-special);
+    opacity: 0.5;
+    font-weight: 400;
+    font-size: 2rem;
+    font-family: Poppins;
+}
+#all-books-link a:hover{
+    opacity: 1;
+}
 
 #left-aside{
     width: 100%;

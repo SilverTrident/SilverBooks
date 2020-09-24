@@ -31,9 +31,12 @@ function DownloadPage({ match }) {
 
         <div id='pageDowload'>
             <Header link='/'>
-                <Link to='/'>Todos os Livros</Link>
+
             </Header>
-            
+
+            <div id='all-books-link'>
+                <Link to='/'>Todos os Livros</Link>
+            </div>
 
             <div id='containner-pageDowload'>
                 <aside id='left-aside'>
@@ -46,7 +49,7 @@ function DownloadPage({ match }) {
                             <img id='book-img' alt='book-folder' src={book.imgLink} />
                         </div>
                         <div id='title-container'>
-                            <h1>{book.name}</h1>
+                            <h1>{book.title} - {book.author}</h1>
 
                             <aside id='advertising'>
 

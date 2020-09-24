@@ -5,6 +5,20 @@
     --color-letters: #FFFFFF;
     --color-special: #1997C6;
     --color-opacity: #757575;
+    --color-danger: #b61414;
+}
+
+::-webkit-scrollbar{
+    width: 1rem;   
+}
+::-webkit-scrollbar-track{
+    background: var(--color-primary);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--color-special);
+    border-radius: 0.5rem;
 }
 
 *{

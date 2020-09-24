@@ -51,7 +51,7 @@
     
     align-items: center;
     justify-content: center;
-    width: 50rem;
+    padding: 3rem;
     
   }
 
@@ -78,7 +78,7 @@
      resize: none; 
   }
   #registerBook-area  textarea{
-    height: 10rem;
+    height: 35rem;
   }
   
  #registerBook-buttons{

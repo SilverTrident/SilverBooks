@@ -45,13 +45,15 @@ function HomePageAdm() {
         <div id="home-page" className='contanner'>
             <Header >
 
-                <div>
-                    <Link to='/user/registerbook'>Cadastrar Novo Livro</Link>
+                <div id= 'header-buttons-rotes'>
+                    <Link to='/'>Home Page</Link>
+                    <Link to='/user/registerbook'>Novo Livro</Link>
+                    <Link to='/register/user/auth'>Novo Usuario</Link>
                 </div>
                 <div id='header-find'>
                     <SearchBar clicke={e => setQuery(e.target.value)} />
                 </div>
-                <div id='header-buttons'>
+                <div id='header-button-logout'>
                     <ButtonLogout />
                 </div>
             </Header>
