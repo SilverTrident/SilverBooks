@@ -31,7 +31,7 @@ function Routes() {
             < Route path="/" exact component={HomePageUser} />
            
             
-                <Route path='/selectedbook/:id' exact component={DownloadPage} />
+                <Route path='/download-page/:id' exact component={DownloadPage} />
                 <Route path='/user/login' exact component={Login} />
 
 

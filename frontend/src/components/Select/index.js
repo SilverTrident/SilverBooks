@@ -8,14 +8,14 @@ function Select(props) {
         <div id='select'>
             <select value={props.value} onChange={props.action}>
                 <option value = '0'id='genero' selected disabled>Genero do Livro</option>
-                <option value='1'>Romance</option>
-                <option value='2'>Terror</option>
-                <option value='3'>Aventura</option>
-                <option value='4'>Distopia</option>
-                <option value='5'>Games</option> 
-                <option value='6'>Programação</option>
-                <option value='7'>Jovem adulto</option>
-                <option value='8'>Crônicas</option>
+                <option value='ROMANCE'>ROMANCE</option>
+                <option value='TERROR'>TERROR</option>
+                <option value='AVENTURA'>AVENTURA</option>
+                <option value='DISTOPIA'>DISTOPIA</option>
+                <option value='GAMES'>GAMES</option> 
+                <option value='INFORMATICA'>INFORMATICA</option>
+                <option value='JOVEM ADULTO'>JOVEM ADULTO</option>
+                <option value='CRONICAS'>CRONICAS</option>
 
             </select>
         </div>

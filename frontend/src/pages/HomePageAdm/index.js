@@ -20,7 +20,7 @@ function HomePageAdm() {
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-
+    const [labelFilterBooks, setLabelFilterBooks] = useState('Todos os Livros');
 
     async function Books() {
 
@@ -41,11 +41,17 @@ function HomePageAdm() {
         Books();
     }, [filter, query]);
 
+    function initialSatus() {
+        setFilter('')
+        setQuery('')
+    }
+    
+
     return (
-        <div id="home-page" className='contanner'>
+        <div id="home-page-admin" className='contanner'>
             <Header >
 
-                <div id= 'header-buttons-rotes'>
+                <div id='header-buttons-rotes'>
                     <Link to='/'>Home Page</Link>
                     <Link to='/user/registerbook'>Novo Livro</Link>
                     <Link to='/register/user/auth'>Novo Usuario</Link>
@@ -57,65 +63,45 @@ function HomePageAdm() {
                     <ButtonLogout />
                 </div>
             </Header>
-            <div id='filters'>
 
-                <button type='button' onClick={() => setFilter('')}>
+
+
+            <div id='filters-admin'>
+                <button type='button' onClick={initialSatus}>
                     <Filter name='Todos' />
                 </button>
-                <button type='button' onClick={() => setFilter('1')}>
+                <button type='button' onClick={() => setFilter('ROMANCE')}>
                     <Filter name='Romance' />
                 </button>
-                <button type='button' onClick={() => setFilter('2')}>
+                <button type='button' onClick={() => setFilter('TERROR')}>
                     <Filter name='Terror' />
                 </button>
-                <button type='button' onClick={() => setFilter('3')}>
+                <button type='button' onClick={() => setFilter('AVENTURA')}>
                     <Filter name='Aventura' />
                 </button>
-                <button type='button' onClick={() => setFilter('4')}>
+                <button type='button' onClick={() => setFilter('DISTOPIA')}>
                     <Filter name='Distopia' />
                 </button>
-                <button type='button' onClick={() => setFilter('5')}>
+                <button type='button' onClick={() => setFilter('GAMES')}>
                     <Filter name='Games' />
                 </button>
-                <button type='button' onClick={() => setFilter('6')}>
+                <button type='button' onClick={() => setFilter('INFORMATICA')}>
                     <Filter name='Programação' />
                 </button>
-                <button type='button' onClick={() => setFilter('7')}>
+                <button type='button' onClick={() => setFilter('JOVEM ADULTO')}>
                     <Filter name='Jovem adulto' />
                 </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
-                    <Filter name='Crônicas' />
-                </button>
-                <button type='button' onClick={() => setFilter('8')}>
+                <button type='button' onClick={() => setFilter('CRONICAS')}>
                     <Filter name='Crônicas' />
                 </button>
             </div>
-            
-            <div id="home-page-content" >
+
+            <div id="home-page-content-admin" >
+                {
+                    !filter ? <h2 >{labelFilterBooks}</h2>
+                        :
+                        <h2 >{filter}</h2>
+                }
                 <main>
                     {
                         books.map(book => (

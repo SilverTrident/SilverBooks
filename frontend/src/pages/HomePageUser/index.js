@@ -6,6 +6,8 @@ import Footer from '../../components/Footer';
 import Book from '../../components/Book';
 import Filter from '../../components/Filter';
 import SearchBar from '../../components/SearchBar';
+
+import NotFoundBook from '../../assets/images/notFoundBook.png';
 import BtnDownload from '../../assets/images/icons/BtnDownload.png';
 
 import './styles.css';
@@ -15,19 +17,27 @@ function HomePageUser() {
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-    
+    const [res, setRes] = useState(false)
+    const [labelFilterBooks, setLabelFilterBooks] = useState('Todos os Livros');
+
 
     async function loadBooks() {
-        let url 
-        if(query){
+        let url
+        if (query) {
             url = `/results?search_query=${query}`
-        }else{
-            url =`/${filter}`
+        } else {
+            url = `/${filter}`
         }
 
         await api.get(url).then(response => {
             setBooks(response.data);
-            
+
+            if (response.data != []) {
+                console.log()
+                setRes(true)
+            }
+
+
         })
     }
 
@@ -35,70 +45,96 @@ function HomePageUser() {
 
     useEffect(() => {
         loadBooks();
-    }, [filter,query]);
+    }, [filter, query, books, res]);
 
-
+    function initialSatus() {
+        setFilter('')
+        setQuery('')
+    }
+    
     return (
         <div id='home-page-user'>
 
             <Header link='/'>
                 <div id='field-find'>
-                    <SearchBar  clicke={e => setQuery(e.target.value)} />
+                    <SearchBar clicke={e => setQuery(e.target.value)} />
                 </div>
 
             </Header>
 
             <div id='filters'>
-                <button type='button' onClick={() => setFilter('')}>
+                <button type='button' onClick={initialSatus}>
                     <Filter name='Todos' />
                 </button>
-                <button type='button' onClick={() => setFilter('1')}>
+                <button type='button' onClick={() => setFilter('ROMANCE')}>
                     <Filter name='Romance' />
                 </button>
-                <button type='button' onClick={() => setFilter('2')}>
+                <button type='button' onClick={() => setFilter('TERROR')}>
                     <Filter name='Terror' />
                 </button>
-                <button type='button' onClick={() => setFilter('3')}>
+                <button type='button' onClick={() => setFilter('AVENTURA')}>
                     <Filter name='Aventura' />
                 </button>
-                <button type='button' onClick={() => setFilter('4')}>
+                <button type='button' onClick={() => setFilter('DISTOPIA')}>
                     <Filter name='Distopia' />
                 </button>
-                <button type='button' onClick={() => setFilter('5')}>
+                <button type='button' onClick={() => setFilter('GAMES')}>
                     <Filter name='Games' />
                 </button>
-                <button type='button' onClick={() => setFilter('6')}>
+                <button type='button' onClick={() => setFilter('INFORMATICA')}>
                     <Filter name='Programação' />
                 </button>
-                <button type='button' onClick={() => setFilter('7')}>
+                <button type='button' onClick={() => setFilter('JOVEM ADULTO')}>
                     <Filter name='Jovem adulto' />
                 </button>
-                <button type='button' onClick={() => setFilter('8')}>
+                <button type='button' onClick={() => setFilter('CRONICAS')}>
                     <Filter name='Crônicas' />
                 </button>
             </div>
 
-            <div id="home-page-content" className="container">
-                <aside id='aside-left'>
-                </aside>
-                <main>
-                    <div id='content-main'>
-                        {
-                            books.map(book => (
-                                <Book titleBook={book.title + " - "+book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
-                                    <Link to={`/selectedbook/${book._id}`}>
-                                        <img src={BtnDownload} alt='image-button-download' />
-                                    </Link>
-                                </Book>
-                            ))
-                        }
+            <div id="home-page-content" >
+                <div id='adsense1'>
+                    ads
+               </div>
 
+                <div id='main'>
+                    <div id='home-page-label-books'>
+                        {
+                            !filter?<h2 >{labelFilterBooks}</h2>
+                            :
+                            <h2 >{filter}</h2>
+                        }
+                        
                     </div>
-                </main>
-                <aside id='aside-right'>
-                </aside>
+                    <main>
+                        <div id='content-main'>
+
+                            {
+                                books.length ?
+                                    books.map(book => (
+                                        <Book titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
+                                            <Link to={`/download-page/${book._id}`}>
+                                                <img src={BtnDownload} alt='image-button-download' />
+                                            </Link>
+                                        </Book>
+                                    )) : (<div>
+                                        <img id='not-found-books-img' src={NotFoundBook} alt='not-found-books' />
+                                    </div>)
+                            }
+
+                        </div>
+                    </main>
+
+                </div>
+                <div id='adsense2'>
+                    ads2
+               </div >
+
             </div>
-            <Footer />
+            <div id='footer-main-page'>
+                <Footer />
+            </div>
+
         </div>
     );
 }
