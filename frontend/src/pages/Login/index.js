@@ -15,45 +15,44 @@ function Login(props) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [error, setError] = useState('');
-  
-
-
-
-
+    const [loading, setLoading] = useState('');
 
     async function Login(e) {
         e.preventDefault()
+        setLoading('Carregando...');
+        setError('');
         const rejex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi
         if (rejex.test(email)) {
             await api.post('/user/login', { email: email, password: password })
                 .then(response => {
-                    props.history.push('/user/home');
+                    
+                    setLoading('')
                     const { token } = response.data
                     if (token) {
-                        
-
                         localStorage.setItem('app-token', token);
+                        props.history.push('/user/home');
+                        
                     }
                 }).catch(err => {
+                    setLoading('')
                     localStorage.removeItem('app-token')
                     setError('Email ou senha incorretos. Por favor tente novamente!')
                 })
         } else {
-            setError('Formato de E-mail invalido')
-            
+            setLoading('')
+            setError('Formato de E-mail invalido!')
+
         }
 
     }
-
-
-
     return (
 
         <div id="login-page">
 
             <Header />
             <div id='login-error'>
-               <span>{error}</span> 
+                <span id='error-login-msg'>{error}</span>
+                <span id='sucess-login-msg'>{loading}</span>
             </div>
             <div id='login-containner'>
 
@@ -77,8 +76,8 @@ function Login(props) {
                     </div>
                     <div id='login-buttons'>
                         <Link to='/'><input type='button' id='btn-back' value='Voltar' /></Link>
-                        <button id='btn-logar'  type='submit'>Entar</button>
-                        
+                        <button id='btn-logar' type='submit'>Entar</button>
+
                     </div>
 
                 </form>

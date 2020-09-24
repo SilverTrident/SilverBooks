@@ -19,7 +19,13 @@
   border-radius: 1rem;
   padding-right: 25rem;
   padding-left: 25rem;
+  
+}
+#error-login-msg{
   color: var(--color-danger);
+}
+#sucess-login-msg{
+  color: var(--color-sucess);
 }
 #login-page #login-containner{
    
