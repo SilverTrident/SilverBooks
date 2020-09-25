@@ -4,7 +4,7 @@ async function generateTag(Idbook) {
   const regex = /[\s.,\/ \-]/;
   let tags = [];
   const response = await ModelBook.findById(Idbook)
-  if (response.name) {
+  if (response.title) {
     text1 = response.name;
     tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
   }

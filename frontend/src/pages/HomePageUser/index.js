@@ -17,7 +17,6 @@ function HomePageUser() {
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-    const [res, setRes] = useState(false)
     const [labelFilterBooks, setLabelFilterBooks] = useState('Todos os Livros');
 
 
@@ -31,13 +30,6 @@ function HomePageUser() {
 
         await api.get(url).then(response => {
             setBooks(response.data);
-
-            if (response.data != []) {
-                console.log()
-                setRes(true)
-            }
-
-
         })
     }
 
@@ -45,7 +37,7 @@ function HomePageUser() {
 
     useEffect(() => {
         loadBooks();
-    }, [filter, query, books, res]);
+    }, [filter, query, books, ]);
 
     function initialSatus() {
         setFilter('')

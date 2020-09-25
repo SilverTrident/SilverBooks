@@ -31,9 +31,9 @@ function Routes() {
             < Route path="/" exact component={HomePageUser} />
            
             
-                <Route path='/download-page/:id' exact component={DownloadPage} />
-                <Route path='/user/login' exact component={Login} />
-
+            <Route path='/download-page/:id' exact component={DownloadPage} />
+            <Route path='/user/login' exact component={Login} />
+            
 
                 <PrivateRoute path='/user/home' exact component={HomePageAdm} />
                 <PrivateRoute path='/user/home/:filter' exact component={HomePageAdm} />
@@ -42,6 +42,7 @@ function Routes() {
 
                 <PrivateRoute path='/register/user/auth' exact component={Register} />
 
+                <Route path='*' component={Login} />
             </Switch>
         </BrowserRouter>
     )
