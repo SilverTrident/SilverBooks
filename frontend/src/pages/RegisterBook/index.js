@@ -96,15 +96,15 @@ function RegisterBook(props) {
                     <h1>Cadastrar Livro</h1>
                     <div id='registerBook-field'>
                         <Input type='text' placeholder='Nome do livro' action={e => setTitle(e.target.value)} />
-                        <span class = 'alert'>{titleAlert}</span>
+                        <span className = 'alert'>{titleAlert}</span>
                         <Input type='text' placeholder='Nome do Autor do livro' action={e => setAuthor(e.target.value)} />
-                        <span class = 'alert'>{authorAlert}</span>
+                        <span className = 'alert'>{authorAlert}</span>
                         <Input type='text' placeholder='Link do livro' action={e => setBookLink(e.target.value)} />
-                        <span class = 'alert'>{bookLinkAlert}</span>
+                        <span className = 'alert'>{bookLinkAlert}</span>
                         <Input type='text' placeholder='Link da Imagem' action={e => setImgLink(e.target.value)} />
-                        <span class = 'alert'>{imgLinkAlert}</span>
+                        <span className = 'alert'>{imgLinkAlert}</span>
                         <Select value={categories} action={e => setCategories(e.target.value)}/>
-                        <span class = 'alert'>{categoriesAlert}</span>
+                        <span className = 'alert'>{categoriesAlert}</span>
 
                         
 
@@ -113,9 +113,9 @@ function RegisterBook(props) {
 
 
                         <TextArea valo={subDescription} label='Descrição Basica do livro:' action={e => setSubDescription(e.target.value)} />
-                        <span class = 'alert'>{subDescriptionAlert}</span>
+                        <span className = 'alert'>{subDescriptionAlert}</span>
                         <TextArea valo={description} label='Descrição completa do livro:' action={e => setDescription(e.target.value)} />
-                        <span class = 'alert'>{descriptionAlert}</span>
+                        <span className = 'alert'>{descriptionAlert}</span>
                     </div>
                     <div id='registerBook-buttons'>
                         <input type='button' id='btn-registerBook' value='Cadastrar Livro' onClick={Cad} />

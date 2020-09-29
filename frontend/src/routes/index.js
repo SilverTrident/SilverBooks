@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoute from './PrivateRoutes';
 
 import HomePageUser from '../pages/HomePageUser';
 import DownloadPage from '../pages/DownloadPage';
-
-
 
 import Login from '../pages/Login';
 
@@ -14,12 +12,10 @@ import EditBook from '../pages/EditBook';
 import RegisterBook from '../pages/RegisterBook'
 
 import Register from '../pages/RegisterUser';
+
+import NotFoundPage from '../pages/NotFoundPage'
+
 import '../assets/styles/global.css';
-
-
-import PrivateRoute from './PrivateRoutes';
-
-
 
 function Routes() {
     return (
@@ -42,7 +38,7 @@ function Routes() {
 
                 <PrivateRoute path='/register/user/auth' exact component={Register} />
 
-                <Route path='*' component={Login} />
+                <Route path='*' component={NotFoundPage} />
             </Switch>
         </BrowserRouter>
     )

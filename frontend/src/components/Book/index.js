@@ -8,9 +8,9 @@ import './styles.css'
 function Book(props) {
     return (
         <article className="book-item">
-            <id id='container-title'>
+            <div id='container-title'>
                 <strong id='book-title'>{props.titleBook}</strong>
-            </id>
+            </div>
             <div id="book-content">
                 <img id='book-img' src={props.linkImg}alt="Book image"/>
                 <p>

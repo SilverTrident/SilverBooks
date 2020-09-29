@@ -1,0 +1,27 @@
+.page-containner{
+    width: 100vw;
+    height: 100vh;
+}
+#notfound-informations-area{
+    display: flex;
+   flex-direction: column;
+   margin-bottom: 20rem;
+   
+}
+#notfound-img-information{
+    margin: 10rem auto;
+    width: 60rem;
+}
+#notfound-informations-area a{
+    margin: 0rem auto;
+    color: var(--color-special);
+    font-size: 3rem;
+    font-family: georgia;
+    font-weight: 200;
+    opacity: 0.5;
+    
+}
+#notfound-informations-area a:hover{
+    cursor: pointer;
+    opacity: 1;
+}

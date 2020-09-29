@@ -31,7 +31,7 @@ function EditBook({ match }) {
     async function LoadBookData() {
         await api.get(`/admin/edit/${match.params.id}`).
             then(response => {
-                console.log(response)
+                
 
                 setTitle(response.data.title);
                 setCategories(response.data.categories);

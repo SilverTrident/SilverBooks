@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import api from '../../services/api';
 import { Link } from 'react-router-dom'
 import Header from '../../components/Header';
@@ -17,7 +18,7 @@ function HomePageUser() {
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-    const [labelFilterBooks, setLabelFilterBooks] = useState('Todos os Livros');
+    const [labelFilterBooks, setLabelFilterBooks] = useState('TODOS OS LIVROS');
 
 
     async function loadBooks() {
@@ -37,7 +38,7 @@ function HomePageUser() {
 
     useEffect(() => {
         loadBooks();
-    }, [filter, query, books, ]);
+    }, [filter, query,  ]);
 
     function initialSatus() {
         setFilter('')

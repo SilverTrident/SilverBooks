@@ -12,13 +12,13 @@ button{
     background: var(--color-primary);
     height: 10rem;
     width: 100%;
-    margin: 2rem;
+    margin-left: 2rem;
 }
 #adsense2{
     background: var(--color-primary);
     height: 10rem;
     width: 100%;
-    margin: 2rem;
+    margin-right: 2rem;
 }
 
 #filters{
@@ -37,6 +37,7 @@ button{
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   }
 #home-page-content{
+   
     margin-top: 10rem;
     display: flex;
     flex-direction: column;
@@ -49,6 +50,7 @@ button{
 
 #home-page-label-books{
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 main{
@@ -78,25 +80,35 @@ main{
     #adsense1{
         background: var(--color-primary);
         height: 100rem;
-        margin: 2rem;
+        margin: 2rem 1rem;
+        box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
+
     }
     #adsense2{
         background: var(--color-primary);
         height: 100rem;
-        margin: 2rem;
+        margin: 2rem 1rem;
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
     }
     
-    #content-main{
-        margin-bottom: 3rem;
-        
-        border-radius: 1rem;
-        display: flex !important;
-        flex-direction: column!important;
+    
+    #containner-main{
+        display: flex;
         align-items: center;
+        justify-content: center;
         
+       
     }
     
    
-  
+    #content-main{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        
+    }
     
     }
