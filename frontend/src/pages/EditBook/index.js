@@ -13,7 +13,7 @@ import './styles.css';
 /*Slect e alter css*/
 
 
-function EditBook({ match }) {
+function EditBook(props, { match }) {
 
 
     const [title, setTitle] = useState();
@@ -29,8 +29,8 @@ function EditBook({ match }) {
 
 
     async function LoadBookData() {
-        await api.get(`/admin/edit/${match.params.id}`).
-            then(response => {
+        await api.get(`/admin/edit/${match.params.id}`)
+        .then(response => {
                 
 
                 setTitle(response.data.title);
@@ -50,7 +50,7 @@ function EditBook({ match }) {
 
     useEffect(() => {
         LoadBookData();
-    }, []);
+    }, [props]);
 
 
     async function Save() {
@@ -93,7 +93,7 @@ function EditBook({ match }) {
                     <h1>Editar Livro</h1>
                     <div id='top-side'>
                         <div id='contanner-img'>
-                            <img id='book-img' src={imgLink} />
+                            <img id='book-img' src={imgLink} alt ='book-folder'/>
                         </div>
 
                         <div id='fields-containner'>

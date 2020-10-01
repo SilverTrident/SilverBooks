@@ -10,11 +10,9 @@ import './styles.css';
 function NotFoundPage(){
     return(
         <div className='page-containner'>
-            <Header>
-
-            </Header>
+            <Header link='/'/>
             <section id='notfound-informations-area'>
-                <img id='notfound-img-information' src={imgNotFound}/>
+                <img id='notfound-img-information' src={imgNotFound} alt='not-found'/>
                 <Link to='/'>Voltar para Home Page.</Link>
             </section>
             <Footer/>

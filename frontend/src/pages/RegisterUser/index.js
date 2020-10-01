@@ -33,12 +33,12 @@ function Register(props) {
         else if (!password) {
             setLoading('')
             setErr('Campo senha é necessário ser preenchido')
-        } else if (password != passwordConfirm) {
+        } else if (password !== passwordConfirm) {
             setLoading('')
             setErr('Senhas não identicas')
             
         }
-        else if (name && email && password && password == passwordConfirm) {
+        else if (name && email && password && password === passwordConfirm) {
             await api.post('/user/', {
                 name,
                 email,
@@ -56,7 +56,7 @@ function Register(props) {
     }
     return (
         <div id='register-page'>
-            <Header link='/user'>
+            <Header link='/user/home'>
                 <ButtonLogout />
             </Header>
 

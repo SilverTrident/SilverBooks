@@ -22,14 +22,7 @@ function DownloadPage({ match }) {
         loadBooks();
     }, []);
 
-
     return (
-
-
-
-
-
-
         <div id='pageDowload'>
             <Header link='/'>
 
@@ -44,7 +37,6 @@ function DownloadPage({ match }) {
 
                 </aside>
                 <section id='top-page'>
-
                     {
                         book.title ? (
                             <div>
@@ -76,7 +68,6 @@ function DownloadPage({ match }) {
                         ) : (
                             <img id='not-found-books-img' src={NotFoundBook} alt='not-found-books' />
                             )
-
                     }
                 </section>
 

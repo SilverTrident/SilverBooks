@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import api from '../../services/api';
 
 import Header from '../../components/Header'
@@ -49,7 +49,7 @@ function Login(props) {
 
         <div id="login-page">
 
-            <Header />
+            <Header link='/'/>
             <div className='login-error'>
                 <span className='error-login-msg'>{error}</span>
                 <span className='sucess-login-msg'>{loading}</span>

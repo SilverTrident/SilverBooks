@@ -13,12 +13,12 @@ import BtnDownload from '../../assets/images/icons/BtnDownload.png';
 
 import './styles.css';
 
-function HomePageUser() {
+function HomePageUser(props) {
 
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-    const [labelFilterBooks, setLabelFilterBooks] = useState('TODOS OS LIVROS');
+    const [labelFilterBooks] = useState('TODOS OS LIVROS');
 
 
     async function loadBooks() {
@@ -28,17 +28,14 @@ function HomePageUser() {
         } else {
             url = `/${filter}`
         }
-
         await api.get(url).then(response => {
             setBooks(response.data);
         })
     }
 
-
-
     useEffect(() => {
         loadBooks();
-    }, [filter, query,  ]);
+    }, [filter, query, props]);
 
     function initialSatus() {
         setFilter('')
@@ -105,16 +102,15 @@ function HomePageUser() {
                             {
                                 books.length ?
                                     books.map(book => (
-                                        <Book titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
+                                        <Book key = { book._id}titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
                                             <Link to={`/download-page/${book._id}`}>
-                                                <img src={BtnDownload} alt='image-button-download' />
+                                                <img src={BtnDownload} alt='button-download' />
                                             </Link>
                                         </Book>
                                     )) : (<div>
                                         <img id='not-found-books-img' src={NotFoundBook} alt='not-found-books' />
                                     </div>)
                             }
-
                         </div>
                     </main>
 
@@ -131,5 +127,4 @@ function HomePageUser() {
         </div>
     );
 }
-
 export default HomePageUser;

@@ -20,7 +20,7 @@ function HomePageAdm() {
     const [books, setBooks] = useState([]);
     const [filter, setFilter] = useState('');
     const [query, setQuery] = useState('');
-    const [labelFilterBooks, setLabelFilterBooks] = useState('Todos os Livros');
+    const [labelFilterBooks] = useState('Todos os Livros');
 
     async function Books() {
 
@@ -49,7 +49,7 @@ function HomePageAdm() {
 
     return (
         <div id="home-page-admin" className='contanner'>
-            <Header >
+            <Header  link='/user/home'>
 
                 <div id='header-buttons-rotes'>
                     <Link to='/'>Home Page</Link>
@@ -105,7 +105,7 @@ function HomePageAdm() {
                 <main>
                     {
                         books.map(book => (
-                            <Book titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
+                            <Book key = {book._id}titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
                                 <Link to={`/user/edit/${book._id}`}>
                                     <img src={BtnEdit} alt='button edit' />
                                 </Link>
