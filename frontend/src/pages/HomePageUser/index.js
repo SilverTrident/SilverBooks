@@ -21,21 +21,22 @@ function HomePageUser(props) {
     const [labelFilterBooks] = useState('TODOS OS LIVROS');
 
 
-    async function loadBooks() {
-        let url
-        if (query) {
-            url = `/results?search_query=${query}`
-        } else {
-            url = `/${filter}`
-        }
-        await api.get(url).then(response => {
-            setBooks(response.data);
-        })
-    }
+    
 
     useEffect(() => {
-        loadBooks();
-    }, [filter, query, props]);
+        const loadBooks = async ()=> {
+            let url
+            if (query) {
+                url = `/results?search_query=${query}`
+            } else {
+                url = `/${filter}`
+            }
+            await api.get(url).then(response => {
+                setBooks(response.data);
+            })
+        }
+        loadBooks()
+    }, [filter, query]);
 
     function initialSatus() {
         setFilter('')

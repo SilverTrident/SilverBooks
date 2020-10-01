@@ -10,11 +10,7 @@ import TextArea from '../../components/TextArea'
 import ButtonLogout from '../../components/ButtonLogout';
 import './styles.css';
 
-/*Slect e alter css*/
-
-
-function EditBook(props, { match }) {
-
+function EditBook( { match }) {
 
     const [title, setTitle] = useState();
     const [categories, setCategories] = useState();
@@ -25,33 +21,24 @@ function EditBook(props, { match }) {
     const [imgLink, setImgLink] = useState();
     const [redirect, setRedirect] = useState(false);
 
-
-
-
-    async function LoadBookData() {
-        await api.get(`/admin/edit/${match.params.id}`)
-        .then(response => {
-                
-
-                setTitle(response.data.title);
-                setCategories(response.data.categories);
-                setAuthor(response.data.author)
-                setDescription(response.data.description);
-                setBookLink(response.data.bookLink);
-                setImgLink(response.data.imgLink);
-                setSubDescription(response.data.subDescription)
-            }).catch(err => {
-
-                console.log(err)
-            })
-    }
-
-
-
+    
     useEffect(() => {
+        const LoadBookData = async () => {
+            await api.get(`/admin/edit/${match.params.id}`)
+            .then(response => {
+                    setTitle(response.data.title);
+                    setCategories(response.data.categories);
+                    setAuthor(response.data.author)
+                    setDescription(response.data.description);
+                    setBookLink(response.data.bookLink);
+                    setImgLink(response.data.imgLink);
+                    setSubDescription(response.data.subDescription)
+                }).catch(err => {
+                    console.log(err)
+                })
+        }
         LoadBookData();
-    }, [props]);
-
+    }, [match]);
 
     async function Save() {
         await api.put(`/admin/${match.params.id}`, {
@@ -81,7 +68,6 @@ function EditBook(props, { match }) {
     }
 
     return (
-
 
         <div id='page-editbook'>
             {redirect && <Redirect to="/user/home" />}

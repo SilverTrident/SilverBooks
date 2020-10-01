@@ -12,15 +12,16 @@ import './styles.css'
 function DownloadPage({ match }) {
     const [book, setBook] = useState([]);
 
-    async function loadBooks() {
-        await api.get(`/selectedbook/${match.params.id}`).then(response => {
-            setBook(response.data);
-        })
-    }
+    
 
     useEffect(() => {
+        const  loadBooks= async () => {
+            await api.get(`/selectedbook/${match.params.id}`).then(response => {
+                setBook(response.data);
+            })
+        }
         loadBooks();
-    }, []);
+    }, [match]);
 
     return (
         <div id='pageDowload'>

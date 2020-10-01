@@ -30,7 +30,7 @@ async function saveTags(Idbook) {
   }).catch(err => {
     return tags
   })
-  console.log('tags' + tags)
+ 
   await ModelBook.findByIdAndUpdate(
     { '_id': Idbook },
     { 'tags': tags },

@@ -22,22 +22,19 @@ function HomePageAdm() {
     const [query, setQuery] = useState('');
     const [labelFilterBooks] = useState('Todos os Livros');
 
-    async function Books() {
-
-        let url
-        if (query) {
-            url = `/admin/results?search_query=${query}`
-        } else {
-            url = `/admin/listall/${filter}`
-        }
-
-        await api.get(url).then(response => {
-            setBooks(response.data);
-
-        })
-    }
 
     useEffect(() => {
+        const Books = async () => {
+            let url
+            if (query) {
+                url = `/admin/results?search_query=${query}`
+            } else {
+                url = `/admin/listall/${filter}`
+            }
+            await api.get(url).then(response => {
+                setBooks(response.data);
+            })
+        }
         Books();
     }, [filter, query]);
 
@@ -49,7 +46,7 @@ function HomePageAdm() {
 
     return (
         <div id="home-page-admin" className='contanner'>
-            <Header  link='/user/home'>
+            <Header link='/user/home'>
 
                 <div id='header-buttons-rotes'>
                     <Link to='/'>Home Page</Link>
@@ -105,7 +102,7 @@ function HomePageAdm() {
                 <main>
                     {
                         books.map(book => (
-                            <Book key = {book._id}titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
+                            <Book key={book._id} titleBook={book.title + " - " + book.author} linkImg={book.imgLink} subDescription={book.subDescription}>
                                 <Link to={`/user/edit/${book._id}`}>
                                     <img src={BtnEdit} alt='button edit' />
                                 </Link>
