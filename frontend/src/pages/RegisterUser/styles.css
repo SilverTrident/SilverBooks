@@ -8,7 +8,7 @@
   #register-page #register-containner{
    
     display: flex;
-    margin: 10rem auto;
+    margin: 3rem auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -88,12 +88,13 @@
     #registe-user-form{
       width: 70%;
     }
-   
-  }
-  @media(min-width: 100px ) and (min-height: 850px){
-    #login-footer{
-      position:absolute;
+    #register-user-footer{
+      position:fixed;
       bottom:0;
       width: 100%;
     }
+   
+  }
+  @media(min-width: 100px ) and (min-height: 850px){
+   
   }

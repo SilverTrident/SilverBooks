@@ -45,7 +45,7 @@ function HomePageAdm() {
         setFilter('')
         setQuery('')
     }
-    
+
 
     return (
         <div id="home-page-admin" className='contanner'>
@@ -114,10 +114,10 @@ function HomePageAdm() {
                     }
                 </main>
             </div>
-            <div id='back-page'>
-
+            <div id='back-page-admin'>
+                <Footer />
             </div>
-            <Footer />
+
         </div>
     );
 }

@@ -1,39 +1,51 @@
+
+const { text } = require('express');
 const ModelBook = require('../models/ModelBook');
 
-async function generateTag(Idbook) {
+ function generateTag(title, description, author) {
   const regex = /[\s.,\/ \-]/;
-  let tags = [];
-  const response = await ModelBook.findById(Idbook)
-  if (response.title) {
-    text1 = response.name;
+  let tags = []
+  if (title) {
+    let tex1 = title;
+    tags.push(...tex1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
+  }
+  if (description) {
+    let text1 = description;
     tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
   }
-  if (response.description) {
-    text1 = response.description;
+  if (author) {
+    let text1 = author;
     tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
   }
-  if (response.author) {
-    text1 = response.author;
-    tags.push(...text1.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().split(regex));
-  }
+
   return tags;
 }
 
 async function saveTags(Idbook) {
-  let tags = await generateTag(Idbook);
+
+  let tags = []
+  
+  await ModelBook.findById(Idbook).then(response => {
+   tags = generateTag(response.title, response.description, response.author);
+  }).catch(err => {
+    return tags
+  })
+  console.log('tags' + tags)
   await ModelBook.findByIdAndUpdate(
     { '_id': Idbook },
     { 'tags': tags },
     { new: true }
   ).
     then(response => {
-      return res.status(200).json(response);
+      return console.log('');
 
     }
     ).catch(err => {
-      return res.status(500).json(err);
+      return console.log('erro ao gerar tags')
     })
 
 }
+
+
 
 module.exports = saveTags

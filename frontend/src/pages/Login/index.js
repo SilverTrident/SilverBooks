@@ -50,9 +50,9 @@ function Login(props) {
         <div id="login-page">
 
             <Header />
-            <div id='login-error'>
-                <span id='error-login-msg'>{error}</span>
-                <span id='sucess-login-msg'>{loading}</span>
+            <div className='login-error'>
+                <span className='error-login-msg'>{error}</span>
+                <span className='sucess-login-msg'>{loading}</span>
             </div>
             <div id='login-containner'>
 
