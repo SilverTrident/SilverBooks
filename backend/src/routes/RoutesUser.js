@@ -5,8 +5,8 @@ const MiddlewareAuthenticated = require('../Middlewares/MiddlewareAuthenticated'
 const express = require('express');
 const route = express.Router();
 
-route.post('/',MiddlewareUser,ControllerUser.created);
-route.post('/login',ControllerUser.login);
+route.post('/', ControllerUser.created);
+route.post('/login', ControllerUser.login);
 
 
 
