@@ -1,5 +1,5 @@
 const mongoose = require('../config/database');
-
+var mongoosePaginate = require('mongoose-paginate-v2');
 const Schema = mongoose.Schema;
 
 const BookSchema = new Schema({
@@ -16,5 +16,7 @@ const BookSchema = new Schema({
         default: Date.now()
     }
 });
+
+BookSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Book', BookSchema);
